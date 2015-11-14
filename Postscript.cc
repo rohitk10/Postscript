@@ -16,7 +16,7 @@ class Postscript
 
     	void line()
     	{
-    		//
+   	//In this function we create lines from a certain (x,y) position and length of the line depends on user input.
     	}
 
     	void triangle()
