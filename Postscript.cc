@@ -21,22 +21,22 @@ class Postscript
 
     	void triangle()
     	{
-    		//In this function we create a triangle by joining three co-ordinates (x1,y1), (x2,y2) and (x3,y3).
+    		//In this function we create an outline of a triangle by joining three co-ordinates (x1,y1), (x2,y2) and (x3,y3).
     	}
 
     	void filltriangle()
     	{
-    		//The fuction filltriangle is used to fill color inside the triangle created above.
+    		//The fuction filltriangle is used to create a triangle by joining three points and fill it with a desired color..
     	}
 
     	void rect()
     	{
-    		//In the rect function we create a rectangle using four co-ordinates in a two dimensional plane.
+    		//In the rect function we create an outline of a rectangle using an x and y coordinate, width and height.
     	}
 
     	void fillrect()
     	{
-    		//fillrect is used to fill color inside the rectangle created above.
+    		//fillrect is used to create a rectangle using coordinates, width and height, and fill it with a esired color.
     	}
 
     	void circle()
@@ -46,7 +46,7 @@ class Postscript
 
     	void fillcircle()
     	{
-    		//The function fillcircle is used to color the circle drawn above.
+    		//The function fillcircle is used to create a circle and fill it with a desired color.
     	}
 
     	void polyline()
