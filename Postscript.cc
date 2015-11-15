@@ -26,17 +26,17 @@ class Postscript
 
     	void filltriangle()
     	{
-    		//The fuction filltriangle is used to create a triangle by joining three points and fill it with a desired color..
+    		//The fuction filltriangle is used to create a triangle by joining three points and filling it with any desired color.
     	}
 
     	void rect()
     	{
-    		//In the rect function we create an outline of a rectangle using an x and y coordinate, width and height.
+    		//In the rect function we create an outline of a rectangle using parameters like x and y coordinate, width and height.
     	}
 
     	void fillrect()
     	{
-    		//fillrect is used to create a rectangle using coordinates, width and height, and fill it with a esired color.
+    		//fillrect is used to create a rectangle using coordinates, width and height, and filling it with any desired color.
     	}
 
     	void circle()
