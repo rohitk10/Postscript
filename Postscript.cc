@@ -32,6 +32,15 @@ class Postscript
     	void rect()
     	{
     		//In the rect function we create an outline of a rectangle using parameters like x and y coordinate, width and height.
+	cout<<x<<' '<<y<<' '<<"moveto"<<' ';
+	cout<<x<<' '<<h<<' '<<"moveto"<<' ';
+	cout<<w<<' '<<h<<' '<<"moveto"<<' ';
+	cout<<"closepath";
+	cout<<"stroke";
+	cout<<"} def";
+	cout<<100<<' '<<200<<' '<<"translate";
+	cout<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"
+	cout<<"Rect";
     	}
 
     	void fillrect()
