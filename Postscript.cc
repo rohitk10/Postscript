@@ -17,9 +17,9 @@ class Postscript
     	void line(double x1, double y1, double x2, double y2)
     	{
    		//In this function we create a line from a certain point (x1,y1) upto another point (x2,y2).
-   		cout<<x1<<' '<<y1<<' '<<"moveto"<</n;
-   		cout<<x2<<' '<<y2<<' '<<"lineto"<</n;
-   		cout<<"stroke";
+   		file<<x1<<' '<<y1<<' '<<"moveto \n";
+   		file<<x2<<' '<<y2<<' '<<"lineto \n";
+   		file<<"stroke";
     	}
 
     	void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
@@ -43,18 +43,18 @@ class Postscript
     		
     	}
 
-    	void rect()
+    	void rect(double x, double y, double w, double h)
     	{
     		//In the rect function we create an outline of a rectangle using parameters like x and y coordinate, width and height.
-	cout<<x<<' '<<y<<' '<<"moveto"<</n;
-	cout<<x<<' '<<h<<' '<<"moveto"<</n;
-	cout<<w<<' '<<h<<' '<<"moveto"<</n;
-	cout<<"closepath"<</n;
-	cout<<"stroke"<</n;
-	cout<<"} def"<</n;
-	cout<<100<<' '<<200<<' '<<"translate"<</n;
-	cout<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"<</n;
-	cout<<"Rect";
+	file<<x<<' '<<y<<' '<<"moveto"<</n;
+	file<<x<<' '<<h<<' '<<"moveto"<</n;
+	file<<w<<' '<<h<<' '<<"moveto"<</n;
+	file<<"closepath"<</n;
+	file<<"stroke"<</n;
+	file<<"} def"<</n;
+	file<<100<<' '<<200<<' '<<"translate"<</n;
+	file<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"<</n;
+	file<<"Rect";
     	}
 
     	void fillrect()
