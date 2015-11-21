@@ -32,9 +32,15 @@ class Postscript
     		file << "stroke";
     	}
 
-    	void filltriangle()
+    	void filltriangle(double x1, double y1, double x2, double y2, double x3, double y3)
     	{
     		//The fuction filltriangle is used to create a triangle by joining three points and filling it with any desired color.
+    	file << x1 << ' ' << y1 << ' ' << "moveto \n";
+    		file << x2 << ' ' << y2 << ' ' << "lineto \n";
+    		file << x3 << ' ' << y3 << ' ' << "lineto \n";
+    		file << "closepath \n";
+    		file << "fill";
+    		
     	}
 
     	void rect()
