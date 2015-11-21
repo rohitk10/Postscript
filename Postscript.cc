@@ -14,7 +14,7 @@ class Postscript
 		file.open(filename);
     	}
 
-    	void line()
+    	void line(double x1, double y1, double x2, double y2)
     	{
    		//In this function we create a line from a certain point (x1,y1) upto another point (x2,y2).
    		cout<<x1<<' '<<y1<<' '<<"moveto"<</n;
@@ -22,9 +22,14 @@ class Postscript
    		cout<<"stroke";
     	}
 
-    	void triangle()
+    	void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
     	{
     		//In this function we create an outline of a triangle by joining three co-ordinates (x1,y1), (x2,y2) and (x3,y3).
+    		file << x1 << ' ' << y1 << ' ' << "moveto \n";
+    		file << x2 << ' ' << y2 << ' ' << "lineto \n";
+    		file << x3 << ' ' << y3 << ' ' << "lineto \n";
+    		file << "closepath \n";
+    		file << "stroke";
     	}
 
     	void filltriangle()
