@@ -57,9 +57,16 @@ class Postscript
 	file<<"Rect";
     	}
 
-    	void fillrect()
+    	void fillrect(double x, double y, double w, double h)
     	{
     		//fillrect is used to create a rectangle using coordinates, width and height, and filling it with any desired color.
+    	file << x << ' ' << y <<" moveto \n";
+	file << x+w << ' ' << y <<" lineto \n";
+	file << x+w << ' ' << y+h <<" lineto \n";
+	file << x << ' ' << y+h <<" lineto \n";
+	file << "closepath \n";
+	file <<"fill \n";
+    		
     	}
 
     	void circle()
