@@ -74,11 +74,11 @@ class Postscript
     		
     	}
 
-    	void circle()
+    	void circle(double x, double y, double r)
     	{
     		//In this function we draw a circle with (x,y) as the centre and radius r obtained from the user.
-    		cout<<x<<' '<<y<<' '<<r<<' '<<"0"<<' '<<"360"<<' '<<"arc"<</n;
-    		cout<<"stroke";
+    		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
+    		file<<"stroke";
     	}
 
     	void fillcircle()
