@@ -13,6 +13,11 @@ class Postscript
 	{
 		file.open(filename);
     	}
+    	
+    	void setcolor(double r, double g, double b)
+	{
+		file << r << ' ' << g << ' ' << b <<" setrgbcolor \n";
+	}
 
     	void line(double x1, double y1, double x2, double y2)
     	{
