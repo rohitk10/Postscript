@@ -17,6 +17,9 @@ class Postscript
     	void line()
     	{
    		//In this function we create a line from a certain point (x1,y1) upto another point (x2,y2).
+   		cout<<x1<<' '<<y1<<' '<<"moveto"<</n;
+   		cout<<x2<<' '<<y2<<' '<<"lineto"<</n;
+   		cout<<"stroke";
     	}
 
     	void triangle()
@@ -32,14 +35,14 @@ class Postscript
     	void rect()
     	{
     		//In the rect function we create an outline of a rectangle using parameters like x and y coordinate, width and height.
-	cout<<x<<' '<<y<<' '<<"moveto"<<' ';
-	cout<<x<<' '<<h<<' '<<"moveto"<<' ';
-	cout<<w<<' '<<h<<' '<<"moveto"<<' ';
-	cout<<"closepath";
-	cout<<"stroke";
-	cout<<"} def";
-	cout<<100<<' '<<200<<' '<<"translate";
-	cout<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"
+	cout<<x<<' '<<y<<' '<<"moveto"<</n;
+	cout<<x<<' '<<h<<' '<<"moveto"<</n;
+	cout<<w<<' '<<h<<' '<<"moveto"<</n;
+	cout<<"closepath"<</n;
+	cout<<"stroke"<</n;
+	cout<<"} def"<</n;
+	cout<<100<<' '<<200<<' '<<"translate"<</n;
+	cout<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"<</n;
 	cout<<"Rect";
     	}
 
@@ -51,6 +54,8 @@ class Postscript
     	void circle()
     	{
     		//In this function we draw a circle with (x,y) as the centre and radius r obtained from the user.
+    		cout<<x<<' '<<y<<' '<<r<<' '<<"0"<<' '<<"360"<<' '<<"arc"<</n;
+    		cout<<"stroke";
     	}
 
     	void fillcircle()
