@@ -151,15 +151,15 @@ class Postscript
     		//In the text function, we write various texts including company names and logos. Examples - Google, Dell, Adidas etc.
     	}
 	
-	void graphictext()
-	{
-		//
-	}
-	
     	void filltext()
     	{
     		//This function is used to give color to texts.
     	}
+    	
+    	void graphictext()
+	{
+		//
+	}
 
     	void lgraph()
     	{
