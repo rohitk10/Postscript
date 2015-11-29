@@ -158,7 +158,26 @@ class Postscript
     	
     	void graphictext()
 	{
-		//
+		// This function includes logos.
+		char x;
+		cout<<"Enter which logo you want out of Google, DELL, Target"
+		cin>>x;
+		string logo = "x";
+		
+		switch(logo)
+		{
+			case "Google" :
+			
+			break;
+			
+			case "DELL" :
+			
+			break;
+			
+			case "Target" :
+			
+			break;
+		}
 	}
 
     	void lgraph()
