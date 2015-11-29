@@ -167,6 +167,53 @@ class Postscript
 		switch(logo)
 		{
 			case "Google" :
+			file<<"/Times-Roman findfont"<<\n;
+			file<<32<<' '<<"scalefont"<<\n;
+			file<<"setfont"\n;
+			file<<100<<' '<<20<<' '<<"translate"\n;
+			file<<2<<' '<<1<<' '<<"scale"\n;
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto"\n;
+			file<<"(G) true charpath"\n;
+			file<<2<<' '<<"setlinewidth"\n;
+			file<<0<<' '<<0<<' '<<1<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
+			file<<1<<' '<<0<<' '<<"translate"\n;
+			file<<"newpath"\n;
+			file<<20<<' '<<0<<' '<<"moveto"\n;
+			file<<"(o) true charpath";
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
+			file<<1<<' '<<0<<' '<<"translate"\n;
+			file<<"newpath"\n;
+			file<<30<<' '<<0<<' '<<"moveto"\n;
+			file<<"(o) true charpath";
+			file<<1<<' '<<1<<' '<<0<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
+			file<<1<<' '<<0<<' '<<"translate"\n;
+			file<<"newpath"\n;
+			file<<50<<' '<<0<<' '<<"moveto"\n;
+			file<<"(g) true charpath";
+			file<<0<<' '<<0<<' '<<1<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
+			file<<1<<' '<<0<<' '<<"translate"\n;
+			file<<"newpath"\n;
+			file<<80<<' '<<0<<' '<<"moveto"\n;
+			file<<"(l) true charpath";
+			file<<0<<' '<<1<' '<<0<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
+			file<<1<<' '<<0<<' '<<"translate"\n;
+			file<<"newpath"\n;
+			file<<90<<' '<<0<<' '<<"moveto"\n;
+			file<<"(e) true charpath";
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
 			
 			break;
 			
