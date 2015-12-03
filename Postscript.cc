@@ -418,6 +418,64 @@ class Postscript
 				    }
 
 				}
+				
+				void bargraph2(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[], double b2[])
+				{
+					file << "30 30 moveto \n"
+						 << "550 30 lineto \n"
+						 << "30 30 moveto \n"
+						 << "30 550 lineto \n"
+						 << "stroke \n"
+						 << "/Helvetica findfont \n"
+						 << "40 scalefont setfont \n"
+						 << "200 550 moveto \n"
+						 << "(" << title << ") show \n"
+						 << "/Helvetica findfont \n"
+						 << "15 scalefont setfont \n"
+						 << "250 5 moveto \n"
+						 << "(" << hl << ") show \n"
+						 << "gsave \n"
+						 << "14 250 moveto \n"
+						 << "90 rotate \n"
+						 << "(" << vl << ") show \n"
+						 << "grestore \n"
+					     << "/Helvetica findfont \n"
+						 << "8 scalefont setfont \n";
+					for(int i = 0; i < hn; i++)
+					{
+						file << 30+((i+1)*intervalh) << " 22 moveto \n"
+							 << "(" << label[i] << ")" << " show \n";
+					}
+					file << "1 0 0 setrgbcolor \n";
+					for(int i = 0; i < hn; i++)
+					{
+						file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
+					}
+					file << "0 0 1 setrgbcolor \n";
+					for(int i = 0; i < hn; i++)
+					{
+						file << 30+((i+1)*intervalh) + 5 << " 30 5 " << b2[i] * intervalv << " rectfill \n";
+					}
+					file << "1 0 0 setrgbcolor \n";
+					for(int i = 0; i < hn; i++)
+				    {
+						file << "gsave \n"
+						     << "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
+							 << "90 rotate \n"
+					   		 << "(" << b1[i] << ") show \n"
+							 << "grestore \n";
+			   	    }
+					file << "0 0 1 setrgbcolor \n";
+					for(int i = 0; i < hn; i++)
+					{
+						file << "gsave \n"
+						     << "28 " << (b2[i] * intervalv) + 25<< " moveto \n"
+							 << "90 rotate \n"
+					   		 << "(" << b2[i] << ") show \n"
+							 << "grestore \n";
+			   	    }
+
+				}
 
 				
     	};
