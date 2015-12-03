@@ -249,26 +249,6 @@ class Postscript
 					cout << "Invalid Choice! \n";
 				}
 	}
-
-    	void grid()
-    	{
-    		//In this function we create a network of lines that cross each other to form multiple squares or rectangles.
-    	}
-
-    	void shadedgrid()
-    	{
-    		//shadegrid function is used to fill colour inside the grid.
-    	}
-
-    	void text()
-    	{
-    		//In the text function, we write various texts including company names and logos. Examples - Google, Dell, Adidas etc.
-    	}
-	
-    	void filltext()
-    	{
-    		//This function is used to give color to texts.
-    	}
     	
     	void graphictext()
 	{
