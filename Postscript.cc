@@ -312,10 +312,45 @@ class Postscript
 			break;
 			
 			case "DELL" :
+			file<<300<<' '<<300<<' '<<220<<' '<<0<<' '<<360<<' '<<"arc";
+			file<<"stroke";
+			file<<"/Times-Roman findfont"<<\n;
+			file<<40<<' '<<"scalefont"<<\n;
+			file<<"setfont"\n;
+			file<<240<<' '<<300<<' '<<"translate"\n;
+			file<<2<<' '<<1<<' '<<"scale"\n;
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto"\n;
+			file<<"(D) true charpath"\n;
+			file<<2<<' '<<"setlinewidth"\n;
+			file<<0<<' '<<1<<' '<<1<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
 			
 			break;
 			
 			case "Target" :
+			file<<200<<' '<<200<' '<<150<<' '<<0<<' '<<360<<' '<<"arc";
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor";
+			file<<"fill";
+			file<<200<<' '<<200<' '100<<' '<<0<<' '<<360<<' '<<"arc";
+			file<<1<<' '<<1<<' '<<1<<' '<<"setrgbcolor";
+			file<<"fill";
+			file<<200<<' '<<200<' '50<<' '<<0<<' '<<360<<' '<<"arc";
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor";
+			file<<"fill";
+			file<<"/Times-Roman findfont"
+			file<<25<<' '<<"scalefont"<<\n;
+			file<<"setfont"\n;
+			file<<100<<' '<<20<<' '<<"translate"\n;
+			file<<2<<' '<<1<<' '<<"scale"\n;
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto"\n;
+			file<<"(TARGET) true charpath"\n;
+			file<<5<<' '<<"setlinewidth"\n;
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
+			file<<"fill"\n;
+			
 			
 			break;
 		}
