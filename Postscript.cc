@@ -476,6 +476,11 @@ class Postscript
 			   	    }
 
 				}
+				
+				void closefile()
+	{
+		file.close();
+	}
 
 				
     	};
