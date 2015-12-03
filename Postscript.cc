@@ -176,6 +176,30 @@ class Postscript
 			     << "fill \n"
 				 << "grestore \n";
 		}
+		
+		void polygon(double x, double y, int n, double l)
+	{
+		double ang = 360 / n;
+		file << "gsave \n";
+		file << x << ' ' << y << ' ' << "translate \n"
+			 << "0 0 moveto \n"
+			 << n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
+			 << "closepath \n"
+			 << "stroke \n"
+			 << "grestore \n";
+	}
+
+	void fillpolygon(double x, double y, int n, double l)
+		{
+			double ang = 360 / n;
+			file << "gsave \n";
+			file << x << ' ' << y << ' ' << "translate \n"
+				 << "0 0 moveto \n"
+				 << n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
+				 << "closepath \n"
+				 << "fill \n"
+				 << "grestore \n";
+		}
 
     	void grid()
     	{
