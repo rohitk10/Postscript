@@ -122,24 +122,41 @@ class Postscript
 			file << "grestore \n";
 		}
 
-    	void polyline()
-    	{
-    		// The polyline function is used to create a continous line having two or more line segments. The number of segments n is obtained from the user.
-    	double arr[2*(n + 1)];
-	cout << "Enter the coordinates of the polyline one by one \n";
-	for(int i = 0; i < 2*(n + 1); i++)
+    	void polyline(int n)
 	{
-		cin >> arr[i];
-	}
+		double arr[2*(n + 1)];
+				cout << "Enter the coordinates of the polyline one by one \n";
+				for(int i = 0; i < 2*(n + 1); i++)
+				{
+					cin >> arr[i];
+				}
 
-	file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
-	for(int i = 2; i < 2*(n + 1); i = i + 2)
-	{
-		file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
+				file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
+				for(int i = 2; i < 2*(n + 1); i = i + 2)
+				{
+					file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
+				}
+				file << "stroke";
 	}
-	file << "stroke";
-    		
-    	}
+	
+	void star(double x, double y, double s)
+	{
+		file << "gsave \n"
+		     << "/side { \n"
+		     << s << ' ' << "0 lineto \n"
+		     << "currentpoint translate \n"
+		     << "-144 rotate \n"
+		     << "} def \n"
+		     << "/star { \n"
+		     << "currentpoint translate \n"
+		     << "4 {side} repeat \n"
+		     << "closepath \n"
+		     << "} def \n"
+		     << x << ' ' << y << ' ' << "moveto \n"
+		     << "star \n"
+		     << "stroke \n"
+		     << "grestore \n";
+	}
 
     	void grid()
     	{
