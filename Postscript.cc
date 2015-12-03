@@ -86,37 +86,41 @@ class Postscript
     	{
     		//The function fillcircle is used to create a circle and fill it with a desired color.
     		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
-    		file<<"fill";
+    		file<<"fill \n";
     
     	}
     	
     	void ellipse(double x, double y, double r1, double r2)
 	{
-		// This function is used to create an outline of an ellipse at center (x,y) with horizontal and vertical radii r1 and r2 respectively.
 		double x0, y0;
 		x0 = x;
 		y0 = y - r2 / 2;
+		file << "gsave \n";
 		file << x0 << ' ' << y0 << ' ' << "translate \n";
 		file << "0 0 moveto \n";
 		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
 		file << "180 rotate \n";
 		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
+		file << "closepath \n";
 		file << "stroke \n";
+		file << "grestore \n";
 	}
 	
 	void fillellipse(double x, double y, double r1, double r2)
-	{
-		// This function is used to create an ellipse at center (x,y) with horizontal and vertical radii r1 and r2 respectively and fill it with a desired color.
-		double x0, y0;
-		x0 = x;
-		y0 = y - r2 / 2;
-		file << x0 << ' ' << y0 << ' ' << "translate \n";
-		file << "0 0 moveto \n";
-		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
-		file << "180 rotate \n";
-		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
-		file << "fill \n";
-	}
+		{
+			double x0, y0;
+			x0 = x;
+			y0 = y - r2 / 2;
+			file << "gsave \n";
+			file << x0 << ' ' << y0 << ' ' << "translate \n";
+			file << "0 0 moveto \n";
+			file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
+			file << "180 rotate \n";
+			file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
+			file << "closepath \n";
+			file << "fill \n";
+			file << "grestore \n";
+		}
 
     	void polyline()
     	{
