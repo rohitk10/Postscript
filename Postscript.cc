@@ -53,19 +53,15 @@ class Postscript
     		
     	}
 
-    	void rect(double x, double y, double w, double h)
-    	{
-    		//In the rect function we create an outline of a rectangle using parameters like x and y coordinate, width and height.
-	file<<x<<' '<<y<<' '<<"moveto"<</n;
-	file<<x<<' '<<h<<' '<<"moveto"<</n;
-	file<<w<<' '<<h<<' '<<"moveto"<</n;
-	file<<"closepath"<</n;
-	file<<"stroke"<</n;
-	file<<"} def"<</n;
-	file<<100<<' '<<200<<' '<<"translate"<</n;
-	file<<10<<' '<<"setlinewidth"<<' '<<1<<' '<<"setlinejoin"<</n;
-	file<<"Rect";
-    	}
+    void rect(double x, double y, double w, double h)
+	{
+	    file<<x<<' '<< y <<" moveto \n";
+		file<<x+w<<' '<<y<<" lineto \n";
+		file<<x+w<<' '<<y+h<<" lineto \n";
+		file<<x<<' '<<y+h<<" lineto \n";
+		file<<"closepath \n";
+		file<<"stroke \n";
+	}
 
     	void fillrect(double x, double y, double w, double h)
     	{
@@ -83,7 +79,7 @@ class Postscript
     	{
     		//In this function we draw a circle with (x,y) as the centre and radius r obtained from the user.
     		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
-    		file<<"stroke";
+    		file<<"stroke \n";
     	}
 
     	void fillcircle(double x, double y, double r)
