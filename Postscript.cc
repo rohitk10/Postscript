@@ -356,4 +356,238 @@ class Postscript
     };
 
     int main()
-    {}
+    {
+    	int input = 1;
+	Postscript p("image.ps");
+	while(input > 0)
+	{
+	cout << "1.  Line \n"
+	     << "2.  Rectangle \n"
+	     << "3.  Circle \n"
+	     << "4.  Polyline \n"
+		 << "5.  Set Color \n"
+		 << "6.  Fill Rectangle \n"
+		 << "7.  Triangle \n"
+		 << "8.  Fill Circle \n"
+		 << "9.  Fill Triangle \n"
+		 << "10. Ellipse \n"
+		 << "11. Fill Ellipse \n"
+		 << "12. Star \n"
+		 << "13. Fill Star \n"
+		 << "14. Polygon \n"
+		 << "15. Fill Polygon \n"
+		 << "16. Grid \n"
+		 << "17. Shaded Grid \n"
+		 << "18. Bar Graph \n"
+		 << "0. Exit \n \n"
+	     << "ENTER CHOICE \n";
+	cin >> input;
+	switch(input)
+	{
+	case 1 :
+		double x1, y1, x2, y2;
+		cout << "Enter the coordinates of the starting point \n";
+		cin >> x1;
+		cin >> y1;
+		cout << "Enter the coordinates of the ending point \n";
+		cin >> x2;
+		cin >> y2;
+		p.line(x1,y1,x2,y2);
+		break;
+
+	case 2 :
+		double x, y, w, h;
+		cout << " Enter starting coordinates \n";
+		cin >> x;
+		cin >> y;
+		cout << "Enter width and height \n";
+		cin >> w;
+		cin >> h;
+		p.rect(x, y, w, h);
+		break;
+
+	case 3 :
+		double xc, yc, r;
+		cout << "Enter the coordinates of the center \n";
+		cin >> xc;
+		cin >> yc;
+		cout << "Enter the radius of the circle \n";
+		cin >> r;
+		p.circle(xc, yc, r);
+		break;
+
+	case 4 :
+		cout << "Enter number of lines \n";
+		int n;
+		cin >> n;
+		p.polyline(n);
+		break;
+
+	case 5 :
+		p.selectcolor();
+		break;
+
+		case 6 :
+			//double x, y, w, h;
+					cout << " Enter starting coordinates \n";
+					cin >> x;
+					cin >> y;
+					cout << "Enter width and height \n";
+					cin >> w;
+					cin >> h;
+					p.selectcolor();
+					p.fillrect(x, y, w, h);
+					break;
+
+		case 7 :
+			cout << "Enter the coordinates of the three vertices \n";
+			double x3, y3;
+			cin >> x1
+			    >> y1
+				>> x2
+				>> y2
+				>> x3
+				>> y3;
+			p.triangle(x1, y1, x2, y2, x3, y3);
+			break;
+
+		case 8 :
+			cout << "Enter the coordinates of the center \n";
+					cin >> xc;
+					cin >> yc;
+					cout << "Enter the radius of the circle \n";
+					cin >> r;
+					p.selectcolor();
+					p.fillcircle(xc, yc, r);
+					break;
+
+		case 9 :
+			cout << "Enter the coordinates of the three vertices \n";
+						//double x3, y3;
+						cin >> x1
+						    >> y1
+							>> x2
+							>> y2
+							>> x3
+							>> y3;
+						p.selectcolor();
+						p.filltriangle(x1, y1, x2, y2, x3, y3);
+						break;
+
+		case 10 :
+			cout << "Enter the coordinates of the center of the ellipse \n";
+			cin >> xc;
+			cin >> yc;
+			cout << "Enter horizontal and vertical radii \n";
+			double r1, r2;
+			cin >> r1;
+			cin >> r2;
+			p.ellipse(xc, yc, r1, r2);
+			break;
+
+		case 11 :
+			cout << "Enter the coordinates of the center of the ellipse \n";
+						cin >> xc;
+						cin >> yc;
+						cout << "Enter horizontal and vertical radii \n";
+						cin >> r1;
+						cin >> r2;
+						p.selectcolor();
+						p.fillellipse(xc, yc, r1, r2);
+						break;
+
+		case 12 :
+			double s;
+			cout << "Enter the coordinates of the starting point \n";
+			cin >> x;
+			cin >> y;
+			cout << "Enter the length of a side \n";
+			cin >> s;
+			p.star(x, y, s);
+			break;
+
+		case 13 :
+			cout << "Enter the coordinates of the starting point \n";
+						cin >> x;
+						cin >> y;
+						cout << "Enter the length of a side \n";
+						cin >> s;
+						p.selectcolor();
+						p.fillstar(x, y, s);
+						break;
+
+		case 14 :
+			cout << "Enter number of sides \n";
+			cin >> n;
+			cout << "Enter length of each side \n";
+			double l;
+			cin >> l;
+			cout << "Enter coordinates of starting point \n";
+			cin >> x;
+			cin >> y;
+			p.polygon(x, y, n, l);
+			break;
+
+		case 15 :
+			cout << "Enter number of sides \n";
+						cin >> n;
+						cout << "Enter length of each side \n";
+						cin >> l;
+						cout << "Enter coordinates of starting point \n";
+						cin >> x;
+						cin >> y;
+						p.selectcolor();
+						p.fillpolygon(x, y, n, l);
+						break;
+
+		case 16 :
+			int rows, cols;
+			cout << "Enter starting position of grid \n";
+			cin >> x;
+			cin >> y;
+			cout << "Enter number of rows and columns \n";
+			cin >> rows;
+			cin >> cols;
+			cout << "Enter height of rows and width of columns \n";
+			cin >> h;
+			cin >> w;
+					for(int i = x; i < x+(cols*w); i = i+w)
+					{
+						for(int j = y; j < y+(rows*h); j = j+h)
+						{
+							p.rect(i, j, w, h);
+						}
+					}
+			//p.rect(x, y, x + (cols*w), y + (rows*h));
+			break;
+
+		case 17 :
+			cout << "Enter starting position of grid \n";
+			cin >> x;
+			cin >> y;
+			cout << "Enter number of rows and columns \n";
+			cin >> rows;
+			cin >> cols;
+			cout << "Enter height of rows and width of columns \n";
+			cin >> h;
+			cin >> w;
+			cout << "Select Background color \n";
+			p.selectcolor();
+			p.fillrect(x, y, (cols*w), (rows*h));
+			cout << "Select grid color \n";
+			p.selectcolor();
+			        for(int i = x; i < x+(cols*w); i = i+w)
+					{
+						for(int j = y; j < y+(rows*h); j = j+h)
+						{
+							p.rect(i, j, w, h);
+						}
+					}
+			break;
+	}
+
+		}
+
+	p.closefile();
+}
+    
