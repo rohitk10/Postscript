@@ -157,6 +157,25 @@ class Postscript
 		     << "stroke \n"
 		     << "grestore \n";
 	}
+	
+	void fillstar(double x, double y, double s)
+		{
+		    file << "gsave \n";
+			file << "/side { \n"
+			     << s << ' ' << "0 lineto \n"
+			     << "currentpoint translate \n"
+			     << "-144 rotate \n"
+			     << "} def \n"
+			     << "/star { \n"
+			     << "currentpoint translate \n"
+			     << "4 {side} repeat \n"
+			     << "closepath \n"
+			     << "} def \n"
+			     << x << ' ' << y << ' ' << "moveto \n"
+			     << "star \n"
+			     << "fill \n"
+				 << "grestore \n";
+		}
 
     	void grid()
     	{
