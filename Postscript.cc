@@ -200,6 +200,55 @@ class Postscript
 				 << "fill \n"
 				 << "grestore \n";
 		}
+		
+		void selectcolor()
+	{
+		        cout << "1. Red \n"
+				     << "2. Green \n"
+					 << "3. Blue \n"
+					 << "4. Magenta \n"
+					 << "5. Yellow \n"
+					 << "6. Cyan \n"
+					 << "7. Gray \n"
+					 << "8. Black \n"
+					 << "9. White \n"
+					 << "Select your color \n";
+				int clr;
+				cin >> clr;
+				switch(clr)
+				{
+				case 1 :
+					setcolor(1, 0, 0);
+					break;
+				case 2 :
+					setcolor(0, 1, 0);
+					break;
+				case 3 :
+					setcolor(0, 0, 1);
+					break;
+				case 4 :
+					setcolor(1, 0, 1);
+					break;
+				case 5 :
+					setcolor(1, 1, 0);
+					break;
+				case 6 :
+					setcolor(0, 1, 1);
+					break;
+				case 7 :
+					setcolor(0, 0, 0);
+					setgray(0.5);
+					break;
+				case 8 :
+					setcolor(0, 0, 0);
+					break;
+				case 9 :
+					setcolor(1, 1, 1);
+					break;
+				default :
+					cout << "Invalid Choice! \n";
+				}
+	}
 
     	void grid()
     	{
