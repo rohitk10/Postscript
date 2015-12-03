@@ -230,16 +230,29 @@ class Postscript
     	void lgraph()
     	{
     		//lgraph function is use to create line graphs to represent census.
-    		char x;
-    		cout<<"Enter the company whose statistics you would like to plot- A or B";
-    		cin>>x;
-    		
-    		char name = 'x';
-    		switch(name)
-    		{
-    		case 'A' :
+    		30 30 moveto
+		550 30 lineto
+		30 30 moveto
+		30 550 lineto
+		stroke
+		Helvetica findfont
+		40 scalefont setfont
+		200 550 moveto
+		(title) true charpath
+		Helvetica findfont
+		15 scalefont setfont
+		250 5 moveto
+		(h1) true charpath
+		gsave
+		14 250 moveto
+		90 rotate
+		(v1) true charpath
+		grestore
+		Helvetica findfont
+		8 scalefont setfont
+		
     		double arr[2*(n + 1)];
-		cout << "Enter the coordinates of the polyline one by one \n";
+		file<< "Enter the coordinates of the polyline one by one \n";
 		for(int i = 0; i < 2*(n + 1); i++)
 		{
 			cin >> arr[i];
