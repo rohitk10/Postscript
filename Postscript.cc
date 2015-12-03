@@ -254,7 +254,7 @@ class Postscript
 	{
 		// This function includes logos.
 		char x;
-		cout<<"Enter which logo you want out of Google, DELL, Target"
+		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi"
 		cin>>x;
 		string logo = "x";
 		
@@ -350,9 +350,37 @@ class Postscript
 			file<<5<<' '<<"setlinewidth"\n;
 			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
 			file<<"fill"\n;
-			
-			
+		
 			break;
+			
+			case "Mitsubishi" :
+			file<<300<<' '<<300<<' '<<"moveto";
+			file<<50<<' '<<-50<<' '<<"rlineto";
+			file<<-50<<' '<<-50<<' '<<"rlineto";
+			file<<-50<<' '<<50<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<300<<' '<<200<<' '<<"moveto";
+			file<<-100<<' '<<0<<' '<<"rlineto";
+			file<<-50<<' '<<-50<<' '<<"rlineto";
+			file<<100<<' '<<0<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<300<<' '<<200<<' '<<"moveto";
+			file<<100<<' '<<0<<' '<<"rlineto";
+			file<<50<<' '<<-50<<' '<<"rlineto";
+			file<<-100<<' '<<0<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<"/Times-Roman findfont"<<\n;
+			file<<20<<' '<<"scalefont"<<\n;
+			file<<"setfont"\n;
+			file<<200<<' '<<100<<' '<<"translate"\n;
+			file<<2<<' '<<1<<' '<<"scale"\n;
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto"\n;
+			file<<"(MITSUBISHI) true charpath"\n;
+			file<<"fill"\n;
 		}
 	}
 
