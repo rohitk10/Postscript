@@ -714,6 +714,93 @@ class Postscript
 						}
 					}
 			break;
+			
+			case 18 :
+			string title, hl, vl;
+			int hn;
+			cout << "Enter Graph Title \n";
+			//getline(cin, title);
+			cin >> title;
+			cout << "Enter Horizontal axis label and Vertical axis label \n";
+			//getline(cin, hl);
+			//getline(cin, vl);
+			cin >> hl;
+			cin >> vl;
+			cout << "Enter number of bars (1 or 2) \n";
+			cin >> n;
+			switch(n)
+			{
+			case 1 :
+			{
+				cout << "Enter number of values on horizontal axis \n";
+				cin >> hn;
+				double b1[hn];
+				string label[hn];
+				double intervalh;
+				intervalh = 500 / hn;
+				for(int i = 0; i < hn; i ++)
+				{
+					cout << "Enter label " << i+1 << '\n';
+					cin >> label[i];
+					cout << "Enter value " << i+1 << '\n';
+					cin >> b1[i];
+				}
+				double max;
+				max = b1[0];
+				for(int i = 0; i < hn-1; i++)
+				{
+					if(b1[i+1] > max)
+					{
+						max = b1[i+1];
+					}
+				}
+				double intervalv;
+				intervalv = 500/max;
+				p.bargraph1(title, hl, vl, hn, intervalh, intervalv, label, b1);
+				break;
+			}
+
+			case 2 :
+			{
+				cout << "Enter number of values on horizontal axis \n";
+				cin >> hn;
+				double b1[hn];
+				string label[hn];
+				double intervalh;
+				intervalh = 500 / hn;
+				double b2[hn];
+				for(int i = 0; i < hn; i ++)
+				{
+					cout << "Enter label " << i+1 << '\n';
+					cin >> label[i];
+				}
+				for(int i = 0; i < hn; i ++)
+				{
+					cout << "Enter value " << i+1 << " for Bar 1 " << '\n';
+					cin >> b1[i];
+					cout << "Enter value " << i+1 << " for Bar 2 " << '\n';
+					cin >> b2[i];
+				}
+				double max;
+				max = b1[0];
+				for(int i = 0; i < hn-1; i++)
+				{
+					if(b1[i+1] > max)
+					{
+						max = b1[i+1];
+					}
+					if(b2[i+1] > max)
+					{
+						max = b2[i+1];
+					}
+				}
+				double intervalv;
+				intervalv = 500 / max;
+				p.bargraph2(title, hl, vl, hn, intervalh, intervalv, label, b1, b2);
+				break;
+			}
+			}
+			break;
 	}
 
 		}
