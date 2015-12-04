@@ -16,11 +16,13 @@ class Postscript
     	
     	void setcolor(double r, double g, double b)
 	{
+		// a simple function to set red, green, blue color
 		file << r << ' ' << g << ' ' << b <<" setrgbcolor \n";
 	}
 	
 	void setgray(double n)
 	{
+		// a function to set the 'grayness' from 0(white) to 1(black)
 		file << n << ' ' << "setgray \n";
 	}
 
@@ -55,6 +57,7 @@ class Postscript
 
     void rect(double x, double y, double w, double h)
 	{
+		// function to draw an outline of a rectangle using starting point coordinates, width and height
 	    file<<x<<' '<< y <<" moveto \n";
 		file<<x+w<<' '<<y<<" lineto \n";
 		file<<x+w<<' '<<y+h<<" lineto \n";
@@ -65,7 +68,7 @@ class Postscript
 
     	void fillrect(double x, double y, double w, double h)
     	{
-    		//fillrect is used to create a rectangle using coordinates, width and height, and filling it with any desired color.
+    		//fillrect is used to create a rectangle using starting coordinates, width and height, and filling it with any desired color.
     	file << x << ' ' << y <<" moveto \n";
 	file << x+w << ' ' << y <<" lineto \n";
 	file << x+w << ' ' << y+h <<" lineto \n";
@@ -92,6 +95,7 @@ class Postscript
     	
     	void ellipse(double x, double y, double r1, double r2)
 	{
+		//function used to draw the outline of an ellipse using starting coordinates, horizontal and vertical radii
 		double x0, y0;
 		x0 = x;
 		y0 = y - r2 / 2;
@@ -107,6 +111,7 @@ class Postscript
 	}
 	
 	void fillellipse(double x, double y, double r1, double r2)
+	//function used to draw an ellipse using starting coordinates, horizontal and vertical radii and fill it with a desired color
 		{
 			double x0, y0;
 			x0 = x;
@@ -124,6 +129,7 @@ class Postscript
 
     	void polyline(int n)
 	{
+		//a function used to draw any number of lines by taking the starting and ending point of each line as an input from the user
 		double arr[2*(n + 1)];
 				cout << "Enter the coordinates of the polyline one by one \n";
 				for(int i = 0; i < 2*(n + 1); i++)
@@ -141,6 +147,7 @@ class Postscript
 	
 	void star(double x, double y, double s)
 	{
+		// a funtion to draw the outline of a five sided star
 		file << "gsave \n"
 		     << "/side { \n"
 		     << s << ' ' << "0 lineto \n"
@@ -159,6 +166,7 @@ class Postscript
 	}
 	
 	void fillstar(double x, double y, double s)
+	// a function to draw a five sided star and fill it with a desired color
 		{
 		    file << "gsave \n";
 			file << "/side { \n"
@@ -178,7 +186,9 @@ class Postscript
 		}
 		
 		void polygon(double x, double y, int n, double l)
+		// a function to draw the outline of an n - sided polygon by taking number of sides and length of a side as an input from user
 	{
+		
 		double ang = 360 / n;
 		file << "gsave \n";
 		file << x << ' ' << y << ' ' << "translate \n"
@@ -190,6 +200,7 @@ class Postscript
 	}
 
 	void fillpolygon(double x, double y, int n, double l)
+	// functio to drwa an n - sided polygon and fill it with a desired color
 		{
 			double ang = 360 / n;
 			file << "gsave \n";
@@ -202,6 +213,7 @@ class Postscript
 		}
 		
 		void selectcolor()
+		// a function that allows the user to select a color out of 9 choices
 	{
 		        cout << "1. Red \n"
 				     << "2. Green \n"
