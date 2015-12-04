@@ -583,7 +583,7 @@ class Postscript
 
     int main()
     {
-    	int input = 1;
+    	int input = 1; // Integer variable to store user's choice
 	Postscript p("image.ps");
 	while(input > 0)
 	{
@@ -611,7 +611,7 @@ class Postscript
 	switch(input)
 	{
 	case 1 :
-		double x1, y1, x2, y2;
+		double x1, y1, x2, y2;// coordinated of starting and ending point of line
 		cout << "Enter the coordinates of the starting point \n";
 		cin >> x1;
 		cin >> y1;
@@ -622,7 +622,7 @@ class Postscript
 		break;
 
 	case 2 :
-		double x, y, w, h;
+		double x, y, w, h; // Double variables to store starting coordinates of rectangle, its width and height
 		cout << " Enter starting coordinates \n";
 		cin >> x;
 		cin >> y;
@@ -633,7 +633,7 @@ class Postscript
 		break;
 
 	case 3 :
-		double xc, yc, r;
+		double xc, yc, r; // Double variables to store coordinates of center of circle and its radius
 		cout << "Enter the coordinates of the center \n";
 		cin >> xc;
 		cin >> yc;
@@ -644,7 +644,7 @@ class Postscript
 
 	case 4 :
 		cout << "Enter number of lines \n";
-		int n;
+		int n; // Integer variable to store number of lines
 		cin >> n;
 		p.polyline(n);
 		break;
@@ -667,7 +667,7 @@ class Postscript
 
 		case 7 :
 			cout << "Enter the coordinates of the three vertices \n";
-			double x3, y3;
+			double x3, y3; // double variables to store coordinates of vertices
 			cin >> x1
 			    >> y1
 				>> x2
@@ -705,7 +705,7 @@ class Postscript
 			cin >> xc;
 			cin >> yc;
 			cout << "Enter horizontal and vertical radii \n";
-			double r1, r2;
+			double r1, r2; // Double variables to store horizontal and vertical radii
 			cin >> r1;
 			cin >> r2;
 			p.ellipse(xc, yc, r1, r2);
@@ -723,7 +723,7 @@ class Postscript
 						break;
 
 		case 12 :
-			double s;
+			double s; // Double variable to store length of a side in the star
 			cout << "Enter the coordinates of the starting point \n";
 			cin >> x;
 			cin >> y;
@@ -746,7 +746,7 @@ class Postscript
 			cout << "Enter number of sides \n";
 			cin >> n;
 			cout << "Enter length of each side \n";
-			double l;
+			double l; // Double variable to store length of a side in the polygon
 			cin >> l;
 			cout << "Enter coordinates of starting point \n";
 			cin >> x;
@@ -767,7 +767,7 @@ class Postscript
 						break;
 
 		case 16 :
-			int rows, cols;
+			int rows, cols; // Integer variables to store number of rows and columns in the grid
 			cout << "Enter starting position of grid \n";
 			cin >> x;
 			cin >> y;
@@ -812,8 +812,8 @@ class Postscript
 			break;
 			
 			case 18 :
-			string title, hl, vl;
-			int hn;
+			string title, hl, vl; // string variables to store title of graph and labels on horizontal and vertical axes
+			int hn; // integer variable to store number of values to plot
 			cout << "Enter Graph Title \n";
 			//getline(cin, title);
 			cin >> title;
@@ -830,9 +830,9 @@ class Postscript
 			{
 				cout << "Enter number of values on horizontal axis \n";
 				cin >> hn;
-				double b1[hn];
-				string label[hn];
-				double intervalh;
+				double b1[hn];//double array to store plot values on horizontal axis 
+				string label[hn];//string array to store bar labels on horizontal axis
+				double intervalh;// double variable to store gap between 2 values on x axis
 				intervalh = 500 / hn;
 				for(int i = 0; i < hn; i ++)
 				{
@@ -841,7 +841,7 @@ class Postscript
 					cout << "Enter value " << i+1 << '\n';
 					cin >> b1[i];
 				}
-				double max;
+				double max;//double variable to store max value so that the graph does not exceed beyond screen space
 				max = b1[0];
 				for(int i = 0; i < hn-1; i++)
 				{
@@ -850,7 +850,7 @@ class Postscript
 						max = b1[i+1];
 					}
 				}
-				double intervalv;
+				double intervalv;//double variable to store gap between 2 values on y axis
 				intervalv = 500/max;
 				p.bargraph1(title, hl, vl, hn, intervalh, intervalv, label, b1);
 				break;
