@@ -1,0 +1,52 @@
+/fun {
+4 3 roll
+dup dup
+mul
+5 4 roll
+dup dup mul
+2 index exch sub
+6 1 roll 2 index
+2 mul mul
+6 1 roll
+pop pop 4 1 roll
+dup 5 1 roll add
+4 1 roll
+1 index
+add 4 3 roll
+exch 4 2 roll
+} def
+/res 500 def
+/iter 50 def
+300 300 translate
+90 rotate
+-150 -260 translate
+0 1 res {
+/x exch def
+0 1 res {
+/y exch def
+0 0
+-2.5 4 x mul res div add
+2 4 y mul res div sub
+iter -1 0 {
+/n exch store
+fun
+2 index dup mul
+4 index dup mul
+add sqrt
+4 gt
+{exit} if
+} for
+pop pop pop pop
+n 0 gt
+{1 setgray
+x y 0.7 0 360 arc
+fill
+}
+{
+0 setgray
+x y 0.5 0 360 arc
+fill
+} ifelse
+}
+for
+} for
