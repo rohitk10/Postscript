@@ -1,0 +1,38 @@
+100 100 moveto 
+300 100 lineto 
+300 600 lineto 
+100 600 lineto 
+closepath 
+stroke 
+1 0 0 setrgbcolor 
+200 200 moveto 
+300 200 lineto 
+300 230 lineto 
+200 230 lineto 
+closepath 
+fill 
+0 0 1 setrgbcolor 
+300 350 50 0 360 arc 
+fill 
+gsave 
+/side { 
+45 0 lineto 
+currentpoint translate 
+-144 rotate 
+} def 
+/star { 
+currentpoint translate 
+4 {side} repeat 
+closepath 
+} def 
+50 50 moveto 
+star 
+stroke 
+grestore 
+gsave 
+300 400 translate 
+0 0 moveto 
+10 {10 0 lineto currentpoint translate 36 rotate} repeat 
+closepath 
+stroke 
+grestore 
