@@ -254,7 +254,7 @@ class Postscript
 	{
 		// This function includes logos.
 		char x;
-		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi"
+		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi or Adidas";
 		cin>>x;
 		string logo = "x";
 		
