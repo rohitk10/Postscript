@@ -381,6 +381,39 @@ class Postscript
 			file<<0<<' '<<0<<' '<<"moveto"\n;
 			file<<"(MITSUBISHI) true charpath"\n;
 			file<<"fill"\n;
+			
+			break;
+			
+			case "Adidas" :
+			file<<0<<' '<<300<<' '<<"moveto";
+			file<<100<<' '<<30<<' '<<"rlineto";
+			file<<50<<' '<<-180<<' '<<"rlineto";
+			file<<-100<<' '<<0<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<180<<' '<<400<<' '<<"moveto";
+			file<<100<<' '<<30<<' '<<"rlineto";
+			file<<70<<' '<<-280<<' '<<"rlineto";
+			file<<-100<<' '<<0<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<400<<' '<<500<<' '<<"moveto";
+			file<<100<<' '<<30<<' '<<"rlineto";
+			file<<50<<' '<<-180<<' '<<"rlineto";
+			file<<-100<<' '<<0<<' '<<"rlineto";
+			file<<"closepath";
+			
+			file<<"/Times-Roman findfont"<<\n;
+			file<<40<<' '<<"scalefont"<<\n;
+			file<<"setfont"\n;
+			file<<200<<' '<<100<<' '<<"translate"\n;
+			file<<2<<' '<<1<<' '<<"scale"\n;
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto"\n;
+			file<<"(adidas) true charpath"\n;
+			file<<10<<' '<<"setlinewidth";
+			file<<"fill"\n;
+			
 		}
 	}
 
