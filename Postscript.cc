@@ -431,7 +431,7 @@ class Postscript
 		}
 	}
 
-    	void lgraph()
+    /*	void lgraph()
     	{
     		//lgraph function is use to create line graphs to represent census.
     		30 30 moveto
@@ -485,7 +485,7 @@ class Postscript
 		}
 		file << "stroke";
     		break;
-    		}
+    		}*/
     		
     		void bargraph1(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[])
 				{
