@@ -471,6 +471,10 @@ class Postscript
     	void lgraph()
     	{
     		//lgraph function is use to create line graphs to represent census.
+    		char x;
+		cout<<"Enter which linegraph you want : A or B \n";
+		cin>>x;
+    		
     		case 'A':
     		file<<30<<' '<<30<<' '<<"moveto";
 		file<<550<<' '<<30<<' '<<"lineto";
