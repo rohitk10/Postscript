@@ -488,7 +488,7 @@ class Postscript
 		}
 		file << "stroke";
     		break;
-    		}*/
+    		}
     		
     		void bargraph1(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[])
 				{
