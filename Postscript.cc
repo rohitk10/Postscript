@@ -266,8 +266,8 @@ class Postscript
 	{
 		// This function includes logos.
 		char x;
-		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi or Adidas \n";
-		cout << "Enter g for Google, d for Dell, t, for Target, m for Mitsubishi or a for Adidas \n";
+		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi, Adidas or Cisco \n";
+		cout << "Enter g for Google, d for Dell, t, for Target, m for Mitsubishi, a for Adidas or c for cisco \n";
 		cin>>x;
 		//string logo = "x";
 		
@@ -428,12 +428,50 @@ class Postscript
 			file<<"fill \n";
 			break;
 			
+			case 'c':
+			file<<50<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<100<<' '<<"rlineto";
+			file<<100<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<150<<' '<<"rlineto";
+			file<<150<<' '<<250<<' '<<"moveto";
+			file<<0<<' '<<250<<' '<<"rlineto";
+			file<<200<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<150<<' '<<"rlineto";
+			file<<150<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<100<<' '<<"rlineto";
+			file<<300<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<150<<' '<<"rlineto";
+			file<<350<<' '<<250<<' '<<"moveto";
+			file<<0<<' '<<250<<' '<<"rlineto";
+			file<<400<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<150<<' '<<"rlineto";
+			file<<450<<' '<<300<<' '<<"moveto";
+			file<<0<<' '<<100<<' '<<"rlineto";
+			file<<1<<' '<<"setlinecap";
+			file<<0<<' '<<0<<' '<<1<<' '<<"setrgbcolor";
+			file<<"fill";
+			
+			file<<"/Times-Roman findfont";
+			file<<70<<' '<<"scalefont";
+			file<<"setfont";
+			file<<40<<' '<<100<<' '<<"translate";
+			file<<2<<' '<<1<<' '<<"scale";
+			file<<"newpath";
+			file<<0<<' '<<0<<' '<<"moveto";
+			file<<"(CISCO) true charpath";
+			file<<20<<' '<<"setlinewidh";
+			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor";
+			file<<"fill";
+			
+			break;		
+			
 		}
 	}
 
     	void lgraph()
     	{
     		//lgraph function is use to create line graphs to represent census.
+    		case 'A':
     		file<<30<<' '<<30<<' '<<"moveto";
 		file<<550<<' '<<30<<' '<<"lineto";
 		file<<30<<' '<<30<<' '<<"moveto";
@@ -474,6 +512,30 @@ class Postscript
     		break;
     			
     		case "B" :
+    		file<<30<<' '<<30<<' '<<"moveto";
+		file<<550<<' '<<30<<' '<<"lineto";
+		file<<30<<' '<<30<<' '<<"moveto";
+		file<<30<<' '<<550<<' '<<"lineto";
+		file<<"stroke";
+		file<<"/Helvetica findfont";
+		file<<40<<' '<<"scalefont";
+		file<<"setfont";
+		file<<200<<' '<<550<<' '<<"moveto";
+		file<<"(title) true charpath";
+		file<<"/Helvetica findfont";
+		file<<15<<' '<<"scalefont";
+		file<<"setfont";
+		file<<250<<' '<<5<<"moveto";
+		file<<"(h1) true charpath";
+		file<<"gsave";
+		file<<14<<' '<<250<<' '<<"moveto";
+		file<<90 rotate 
+		file<<(v1) true charpath
+		file<<grestore
+		file<<"/Helvetica findfont";
+		file<<8<<' '<<"scalefont"; 
+		file<<"setfont";
+		
     		double arr[2*(n + 1)];
 		cout << "Enter the coordinates of the polyline one by one \n";
 		for(int i = 0; i < 2*(n + 1); i++)
@@ -532,62 +594,61 @@ class Postscript
 
 				}
 				
-				void bargraph2(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[], double b2[])
+		void bargraph2(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[], double b2[])
+		{
+			file << "30 30 moveto \n"
+			 << "550 30 lineto \n"
+			 << "30 30 moveto \n"
+			<< "30 550 lineto \n"
+			 << "stroke \n"
+			 << "/Helvetica findfont \n"
+			<< "40 scalefont setfont \n"
+			<< "200 550 moveto \n"
+			 << "(" << title << ") show \n"
+			 << "/Helvetica findfont \n"
+			 << "15 scalefont setfont \n"
+			 << "250 5 moveto \n"
+			 << "(" << hl << ") show \n"
+			 << "gsave \n"
+			 << "14 250 moveto \n"
+			 << "90 rotate \n"
+			 << "(" << vl << ") show \n"
+			 << "grestore \n"
+		         << "/Helvetica findfont \n"
+		         << "8 scalefont setfont \n";
+				for(int i = 0; i < hn; i++)
 				{
-					file << "30 30 moveto \n"
-						 << "550 30 lineto \n"
-						 << "30 30 moveto \n"
-						 << "30 550 lineto \n"
-						 << "stroke \n"
-						 << "/Helvetica findfont \n"
-						 << "40 scalefont setfont \n"
-						 << "200 550 moveto \n"
-						 << "(" << title << ") show \n"
-						 << "/Helvetica findfont \n"
-						 << "15 scalefont setfont \n"
-						 << "250 5 moveto \n"
-						 << "(" << hl << ") show \n"
-						 << "gsave \n"
-						 << "14 250 moveto \n"
-						 << "90 rotate \n"
-						 << "(" << vl << ") show \n"
-						 << "grestore \n"
-					     << "/Helvetica findfont \n"
-						 << "8 scalefont setfont \n";
-					for(int i = 0; i < hn; i++)
-					{
-						file << 30+((i+1)*intervalh) << " 22 moveto \n"
-							 << "(" << label[i] << ")" << " show \n";
-					}
-					file << "1 0 0 setrgbcolor \n";
-					for(int i = 0; i < hn; i++)
-					{
-						file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
-					}
-					file << "0 0 1 setrgbcolor \n";
-					for(int i = 0; i < hn; i++)
-					{
-						file << 30+((i+1)*intervalh) + 5 << " 30 5 " << b2[i] * intervalv << " rectfill \n";
-					}
-					file << "1 0 0 setrgbcolor \n";
-					for(int i = 0; i < hn; i++)
-				    {
-						file << "gsave \n"
-						     << "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
-							 << "90 rotate \n"
-					   		 << "(" << b1[i] << ") show \n"
-							 << "grestore \n";
-			   	    }
-					file << "0 0 1 setrgbcolor \n";
-					for(int i = 0; i < hn; i++)
-					{
-						file << "gsave \n"
-						     << "28 " << (b2[i] * intervalv) + 25<< " moveto \n"
-							 << "90 rotate \n"
-					   		 << "(" << b2[i] << ") show \n"
-							 << "grestore \n";
-			   	    }
-
+				file << 30+((i+1)*intervalh) << " 22 moveto \n"
+		   		 << "(" << label[i] << ")" << " show \n";
+				}
+				file << "1 0 0 setrgbcolor \n";
+				for(int i = 0; i < hn; i++)
+				{
+				file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
+				}
+				file << "0 0 1 setrgbcolor \n";
+				for(int i = 0; i < hn; i++)
+				{
+				file << 30+((i+1)*intervalh) + 5 << " 30 5 " << b2[i] * intervalv << " rectfill \n";
+				}
+				file << "1 0 0 setrgbcolor \n";
+				for(int i = 0; i < hn; i++)
+				 {
+				file << "gsave \n"
+				<< "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
+				<< "90 rotate \n"
+				<< "(" << b1[i] << ") show \n"
+				 << "grestore \n";
+			   	  }
+				file << "0 0 1 setrgbcolor \n";
+				for(int i = 0; i < hn; i++)
+				{
+				file << "gsave \n"
+				<< "28 " << (b2[i] * intervalv) + 25<< " moveto \n"
+				 << "90 rotate \n"
+				 << "(" << b2[i] << ") show \n"
+				 << "grestore \n";
+			   	  }
 				}
 				
 				void closefile()
