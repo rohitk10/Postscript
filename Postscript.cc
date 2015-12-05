@@ -266,165 +266,167 @@ class Postscript
 	{
 		// This function includes logos.
 		char x;
-		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi or Adidas";
+		cout<<"Enter which logo you want out of Google, DELL, Target, Mitsubishi or Adidas \n";
+		cout << "Enter g for Google, d for Dell, t, for Target, m for Mitsubishi or a for Adidas \n";
 		cin>>x;
-		string logo = "x";
+		//string logo = "x";
 		
-		switch(logo)
+		switch(x)
 		{
-			case "Google" :
-			file<<"/Times-Roman findfont"<<\n;
-			file<<32<<' '<<"scalefont"<<\n;
-			file<<"setfont"\n;
-			file<<100<<' '<<20<<' '<<"translate"\n;
-			file<<2<<' '<<1<<' '<<"scale"\n;
-			file<<"newpath";
-			file<<0<<' '<<0<<' '<<"moveto"\n;
-			file<<"(G) true charpath"\n;
-			file<<2<<' '<<"setlinewidth"\n;
-			file<<0<<' '<<0<<' '<<1<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			case 'g' :
+			file<<"/Times-Roman findfont \n";
+			file<<"32"<<' '<<"scalefont \n";
+			file<<"setfont \n";
+			file<<"100"<<' '<<"20"<<' '<<"translate \n";
+			file<<"2"<<' '<<"1"<<' '<<"scale \n";
+			file<<"newpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(G) true charpath \n";
+			file<<"2"<<' '<<"setlinewidth \n";
+			file<<"0"<<' '<<"0"<<' '<<"1"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
-			file<<1<<' '<<0<<' '<<"translate"\n;
-			file<<"newpath"\n;
-			file<<20<<' '<<0<<' '<<"moveto"\n;
-			file<<"(o) true charpath";
-			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			file<<"1"<<' '<<"0"<<' '<<"translate \n";
+			file<<"newpath \n";
+			file<<"20"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(o) true charpath \n";
+			file<<1<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
-			file<<1<<' '<<0<<' '<<"translate"\n;
-			file<<"newpath"\n;
-			file<<30<<' '<<0<<' '<<"moveto"\n;
-			file<<"(o) true charpath";
-			file<<1<<' '<<1<<' '<<0<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			file<<"1"<<' '<<"0"<<' '<<"translate \n";
+			file<<"newpath \n";
+			file<<"30"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(o) true charpath \n";
+			file<<"1"<<' '<<"1"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
-			file<<1<<' '<<0<<' '<<"translate"\n;
-			file<<"newpath"\n;
-			file<<50<<' '<<0<<' '<<"moveto"\n;
-			file<<"(g) true charpath";
-			file<<0<<' '<<0<<' '<<1<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			file<<"1"<<' '<<"0"<<' '<<"translate \n";
+			file<<"newpath \n";
+			file<<"50"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(g) true charpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"1"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
-			file<<1<<' '<<0<<' '<<"translate"\n;
-			file<<"newpath"\n;
-			file<<80<<' '<<0<<' '<<"moveto"\n;
-			file<<"(l) true charpath";
-			file<<0<<' '<<1<' '<<0<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			file<<"1"<<' '<<"0"<<' '<<"translate \n";
+			file<<"newpath \n";
+			file<<"80"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(l) true charpath \n";
+			file<<"0"<<' '<<"1"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
-			file<<1<<' '<<0<<' '<<"translate"\n;
-			file<<"newpath"\n;
-			file<<90<<' '<<0<<' '<<"moveto"\n;
-			file<<"(e) true charpath";
-			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
-			
-			
-			break;
-			
-			case "DELL" :
-			file<<300<<' '<<300<<' '<<220<<' '<<0<<' '<<360<<' '<<"arc";
-			file<<"stroke";
-			file<<"/Times-Roman findfont"<<\n;
-			file<<40<<' '<<"scalefont"<<\n;
-			file<<"setfont"\n;
-			file<<240<<' '<<300<<' '<<"translate"\n;
-			file<<2<<' '<<1<<' '<<"scale"\n;
-			file<<"newpath";
-			file<<0<<' '<<0<<' '<<"moveto"\n;
-			file<<"(D) true charpath"\n;
-			file<<2<<' '<<"setlinewidth"\n;
-			file<<0<<' '<<1<<' '<<1<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			file<<"1"<<' '<<"0"<<' '<<"translate \n";
+			file<<"newpath \n";
+			file<<"90"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(e) true charpath \n";
+			file<<"1"<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 			
 			
 			break;
 			
-			case "Target" :
-			file<<200<<' '<<200<' '<<150<<' '<<0<<' '<<360<<' '<<"arc";
-			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor";
-			file<<"fill";
-			file<<200<<' '<<200<' '100<<' '<<0<<' '<<360<<' '<<"arc";
-			file<<1<<' '<<1<<' '<<1<<' '<<"setrgbcolor";
-			file<<"fill";
-			file<<200<<' '<<200<' '50<<' '<<0<<' '<<360<<' '<<"arc";
-			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor";
-			file<<"fill";
-			file<<"/Times-Roman findfont"
-			file<<25<<' '<<"scalefont"<<\n;
-			file<<"setfont"\n;
-			file<<100<<' '<<20<<' '<<"translate"\n;
-			file<<2<<' '<<1<<' '<<"scale"\n;
-			file<<"newpath";
-			file<<0<<' '<<0<<' '<<"moveto"\n;
-			file<<"(TARGET) true charpath"\n;
-			file<<5<<' '<<"setlinewidth"\n;
-			file<<1<<' '<<0<<' '<<0<<' '<<"setrgbcolor"\n;
-			file<<"fill"\n;
+			case 'd' :
+			file<<"300"<<' '<<"300"<<' '<<"220"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+			file<<"stroke \n";
+			file<<"/Times-Roman findfont \n";
+			file<<"40"<<' '<<"scalefont \n";
+			file<<"setfont \n";
+			file<<"240"<<' '<<"300"<<' '<<"translate \n";
+			file<<"2"<<' '<<"1"<<' '<<"scale \n";
+			file<<"newpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(D) true charpath \n";
+			file<<"2"<<' '<<"setlinewidth \n";
+			file<<"0"<<' '<<"1"<<' '<<"1"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
+			
+			
+			break;
+			
+			case 't' :
+			file<<"200"<<' '<<"200"<<' '<<"150"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+			file<<"1"<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
+			file<<"200"<<' '<<"200"<<' '<<"100"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+			file<<"1"<<' '<<"1"<<' '<<"1"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
+			file<<"200"<<' '<<"200"<<' '<<"50"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+			file<<"1"<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
+			file<<"/Times-Roman findfont \n";
+			file<<"25"<<' '<<"scalefont \n";
+			file<<"setfont \n";
+			file<<"100"<<' '<<"20"<<' '<<"translate \n";
+			file<<"2"<<' '<<"1"<<' '<<"scale \n";
+			file<<"newpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(TARGET) true charpath \n";
+			file<<"5"<<' '<<"setlinewidth \n";
+			file<<"1"<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
+			file<<"fill \n";
 		
 			break;
 			
-			case "Mitsubishi" :
-			file<<300<<' '<<300<<' '<<"moveto";
-			file<<50<<' '<<-50<<' '<<"rlineto";
-			file<<-50<<' '<<-50<<' '<<"rlineto";
-			file<<-50<<' '<<50<<' '<<"rlineto";
-			file<<"closepath";
+			case 'm' :
+			file<<"300"<<' '<<"300"<<' '<<"moveto \n";
+			file<<"50"<<' '<<"-50"<<' '<<"rlineto \n";
+			file<<"-50"<<' '<<"-50"<<' '<<"rlineto \n";
+			file<<"-50"<<' '<<"50"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<300<<' '<<200<<' '<<"moveto";
-			file<<-100<<' '<<0<<' '<<"rlineto";
-			file<<-50<<' '<<-50<<' '<<"rlineto";
-			file<<100<<' '<<0<<' '<<"rlineto";
-			file<<"closepath";
+			file<<"300"<<' '<<"200"<<' '<<"moveto \n";
+			file<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"-50"<<' '<<"-50"<<' '<<"rlineto \n";
+			file<<"100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<300<<' '<<200<<' '<<"moveto";
-			file<<100<<' '<<0<<' '<<"rlineto";
-			file<<50<<' '<<-50<<' '<<"rlineto";
-			file<<-100<<' '<<0<<' '<<"rlineto";
-			file<<"closepath";
+			file<<"300"<<' '<<"200"<<' '<<"moveto \n";
+			file<<"100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"50"<<' '<<"-50"<<' '<<"rlineto \n";
+			file<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<"/Times-Roman findfont"<<\n;
-			file<<20<<' '<<"scalefont"<<\n;
-			file<<"setfont"\n;
-			file<<200<<' '<<100<<' '<<"translate"\n;
-			file<<2<<' '<<1<<' '<<"scale"\n;
-			file<<"newpath";
-			file<<0<<' '<<0<<' '<<"moveto"\n;
-			file<<"(MITSUBISHI) true charpath"\n;
-			file<<"fill"\n;
+			file<<"/Times-Roman findfont \n";
+			file<<"20"<<' '<<"scalefont \n";
+			file<<"setfont \n";
+			file<<"200"<<' '<<"100"<<' '<<"translate \n";
+			file<<"2"<<' '<<"1"<<' '<<"scale \n";
+			file<<"newpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(MITSUBISHI) true charpath \n";
+			file<<"fill \n";
 			
 			break;
 			
-			case "Adidas" :
-			file<<0<<' '<<300<<' '<<"moveto";
-			file<<100<<' '<<30<<' '<<"rlineto";
-			file<<50<<' '<<-180<<' '<<"rlineto";
-			file<<-100<<' '<<0<<' '<<"rlineto";
-			file<<"closepath";
+			case 'a' :
+			file<<"0"<<' '<<"300"<<' '<<"moveto \n";
+			file<<"100"<<' '<<"30"<<' '<<"rlineto \n";
+			file<<"50"<<' '<<"-180"<<' '<<"rlineto \n";
+			file<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<180<<' '<<400<<' '<<"moveto";
-			file<<100<<' '<<30<<' '<<"rlineto";
-			file<<70<<' '<<-280<<' '<<"rlineto";
-			file<<-100<<' '<<0<<' '<<"rlineto";
-			file<<"closepath";
+			file<<"180"<<' '<<"400"<<' '<<"moveto \n";
+			file<<"100"<<' '<<"30"<<' '<<"rlineto \n";
+			file<<"70"<<' '<<"-280"<<' '<<"rlineto \n";
+			file<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<400<<' '<<500<<' '<<"moveto";
-			file<<100<<' '<<30<<' '<<"rlineto";
-			file<<50<<' '<<-180<<' '<<"rlineto";
-			file<<-100<<' '<<0<<' '<<"rlineto";
-			file<<"closepath";
+			file<<"400"<<' '<<"500"<<' '<<"moveto \n";
+			file<<"100"<<' '<<"30"<<' '<<"rlineto \n";
+			file<<"50"<<' '<<"-180"<<' '<<"rlineto \n";
+			file<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
+			file<<"closepath \n";
 			
-			file<<"/Times-Roman findfont"<<\n;
-			file<<40<<' '<<"scalefont"<<\n;
-			file<<"setfont"\n;
-			file<<200<<' '<<100<<' '<<"translate"\n;
-			file<<2<<' '<<1<<' '<<"scale"\n;
-			file<<"newpath";
-			file<<0<<' '<<0<<' '<<"moveto"\n;
-			file<<"(adidas) true charpath"\n;
-			file<<10<<' '<<"setlinewidth";
-			file<<"fill"\n;
+			file<<"/Times-Roman findfont \n";
+			file<<"40"<<' '<<"scalefont \n";
+			file<<"setfont \n";
+			file<<"200"<<' '<<"100"<<' '<<"translate \n";
+			file<<"2"<<' '<<"1"<<' '<<"scale \n";
+			file<<"newpath \n";
+			file<<"0"<<' '<<"0"<<' '<<"moveto \n";
+			file<<"(adidas) true charpath \n";
+			file<<"10"<<' '<<"setlinewidth \n";
+			file<<"fill \n";
+			break;
 			
 		}
 	}
