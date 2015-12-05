@@ -431,29 +431,32 @@ class Postscript
 		}
 	}
 
-    /*	void lgraph()
+    	void lgraph()
     	{
     		//lgraph function is use to create line graphs to represent census.
-    		30 30 moveto
-		550 30 lineto
-		30 30 moveto
-		30 550 lineto
-		stroke
-		Helvetica findfont
-		40 scalefont setfont
-		200 550 moveto
-		(title) true charpath
-		Helvetica findfont
-		15 scalefont setfont
-		250 5 moveto
-		(h1) true charpath
-		gsave
-		14 250 moveto
-		90 rotate
-		(v1) true charpath
-		grestore
-		Helvetica findfont
-		8 scalefont setfont
+    		file<<30<<' '<<30<<' '<<"moveto";
+		file<<550<<' '<<30<<' '<<"lineto";
+		file<<30<<' '<<30<<' '<<"moveto";
+		file<<30<<' '<<550<<' '<<"lineto";
+		file<<"stroke";
+		file<<"/Helvetica findfont";
+		file<<40<<' '<<"scalefont";
+		file<<"setfont";
+		file<<200<<' '<<550<<' '<<"moveto";
+		file<<"(title) true charpath";
+		file<<"/Helvetica findfont";
+		file<<15<<' '<<"scalefont";
+		file<<"setfont";
+		file<<250<<' '<<5<<"moveto";
+		file<<"(h1) true charpath";
+		file<<"gsave";
+		file<<14<<' '<<250<<' '<<"moveto";
+		file<<90 rotate 
+		file<<(v1) true charpath
+		file<<grestore
+		file<<"/Helvetica findfont";
+		file<<8<<' '<<"scalefont"; 
+		file<<"setfont";
 		
     		double arr[2*(n + 1)];
 		file<< "Enter the coordinates of the polyline one by one \n";
