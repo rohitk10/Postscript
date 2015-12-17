@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 class Postscript
@@ -12,52 +13,38 @@ class Postscript
 	Postscript(const char filename[])
 	{
 		file.open(filename);
-    	}
-    	
-    	void setcolor(double r, double g, double b)
+   	}
+
+	void setcolor(double r, double g, double b)
 	{
-		// a simple function to set red, green, blue color
-		file << r << ' ' << g << ' ' << b <<" setrgbcolor \n";
+		file<<r<<' '<<g<<' '<<b<<" setrgbcolor \n";
 	}
-	
+
 	void setgray(double n)
 	{
-		// a function to set the 'grayness' from 0(white) to 1(black)
 		file << n << ' ' << "setgray \n";
 	}
 
-    	void line(double x1, double y1, double x2, double y2)
-    	{
-   		//In this function we create a line from a certain point (x1,y1) upto another point (x2,y2).
-   		file<<x1<<' '<<y1<<' '<<"moveto \n";
-   		file<<x2<<' '<<y2<<' '<<"lineto \n";
-   		file<<"stroke";
-    	}
+	void line(double x1, double y1, double x2, double y2)
+    {
+	   	//In this function we create a line from a certain point (x1,y1) upto another point (x2,y2).
+	   	file<<x1<<' '<<y1<<' '<<"moveto \n";
+	   	file<<x2<<' '<<y2<<' '<<"lineto \n";
+	   	file<<"stroke \n";
+    }
 
-    	void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
-    	{
-    		//In this function we create an outline of a triangle by joining three co-ordinates (x1,y1), (x2,y2) and (x3,y3).
-    		file << x1 << ' ' << y1 << ' ' << "moveto \n";
-    		file << x2 << ' ' << y2 << ' ' << "lineto \n";
-    		file << x3 << ' ' << y3 << ' ' << "lineto \n";
-    		file << "closepath \n";
-    		file << "stroke";
-    	}
-
-    	void filltriangle(double x1, double y1, double x2, double y2, double x3, double y3)
-    	{
-    		//The fuction filltriangle is used to create a triangle by joining three points and filling it with any desired color.
-        	file << x1 << ' ' << y1 << ' ' << "moveto \n";
-    		file << x2 << ' ' << y2 << ' ' << "lineto \n";
-    		file << x3 << ' ' << y3 << ' ' << "lineto \n";
-    		file << "closepath \n";
-    		file << "fill";
-    		
-    	}
-
-    void rect(double x, double y, double w, double h)
+	void fillrect(double x, double y, double w, double h)
 	{
-		// function to draw an outline of a rectangle using starting point coordinates, width and height
+	    file<<x<<' '<< y <<" moveto \n";
+		file<<x+w<<' '<<y<<" lineto \n";
+		file<<x+w<<' '<<y+h<<" lineto \n";
+		file<<x<<' '<<y+h<<" lineto \n";
+		file<<"closepath \n";
+		file<<"fill \n";
+	}
+
+	void rect(double x, double y, double w, double h)
+	{
 	    file<<x<<' '<< y <<" moveto \n";
 		file<<x+w<<' '<<y<<" lineto \n";
 		file<<x+w<<' '<<y+h<<" lineto \n";
@@ -66,36 +53,39 @@ class Postscript
 		file<<"stroke \n";
 	}
 
-    	void fillrect(double x, double y, double w, double h)
-    	{
-    		//fillrect is used to create a rectangle using starting coordinates, width and height, and filling it with any desired color.
-    	file << x << ' ' << y <<" moveto \n";
-	file << x+w << ' ' << y <<" lineto \n";
-	file << x+w << ' ' << y+h <<" lineto \n";
-	file << x << ' ' << y+h <<" lineto \n";
-	file << "closepath \n";
-	file <<"fill \n";
-    		
-    	}
-
-    	void circle(double x, double y, double r)
-    	{
-    		//In this function we draw a circle with (x,y) as the centre and radius r obtained from the user.
-    		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
-    		file<<"stroke \n";
-    	}
-
-    	void fillcircle(double x, double y, double r)
-    	{
-    		//The function fillcircle is used to create a circle and fill it with a desired color.
-    		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
-    		file<<"fill \n";
-    
-    	}
-    	
-    	void ellipse(double x, double y, double r1, double r2)
+	void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
 	{
-		//function used to draw the outline of an ellipse using starting coordinates, horizontal and vertical radii
+		file<<x1<<' '<<y1<<" moveto \n";
+		file<<x2<<' '<<y2<<" lineto \n";
+		file<<x3<<' '<<y3<<" lineto \n";
+		file<<"closepath \n";
+		file<<"stroke \n";
+	}
+
+	void filltriangle(double x1, double y1, double x2, double y2, double x3, double y3)
+	{
+		file<<x1<<' '<<y1<<" moveto \n";
+		file<<x2<<' '<<y2<<" lineto \n";
+		file<<x3<<' '<<y3<<" lineto \n";
+		file<<"closepath \n";
+		file<<"fill \n";
+	}
+void circle(double x, double y, double r)
+  	{
+	    //In this function we draw a circle with (x,y) as the centre and radius r obtained from the user.
+	    file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
+	    file<<"stroke \n";
+	}
+
+	void fillcircle(double x, double y, double r)
+	{
+		//In this function we draw and fill a circle with (x,y) as the center and radius r obtained from the user.
+		file << x << ' ' << y << ' ' << r << ' ' << "0" << ' ' << "360" << ' ' << "arc \n";
+   		file<<"fill \n";
+ 	}
+
+	void ellipse(double x, double y, double r1, double r2)
+	{
 		double x0, y0;
 		x0 = x;
 		y0 = y - r2 / 2;
@@ -109,110 +99,103 @@ class Postscript
 		file << "stroke \n";
 		file << "grestore \n";
 	}
-	
+
 	void fillellipse(double x, double y, double r1, double r2)
-	//function used to draw an ellipse using starting coordinates, horizontal and vertical radii and fill it with a desired color
+	{
+		double x0, y0;
+		x0 = x;
+		y0 = y - r2 / 2;
+		file << "gsave \n";
+		file << x0 << ' ' << y0 << ' ' << "translate \n";
+		file << "0 0 moveto \n";
+		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
+		file << "180 rotate \n";
+		file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
+		file << "closepath \n";
+		file << "fill \n";
+		file << "grestore \n";
+	}
+
+	void polyline(int n)
+	{
+		double arr[2*(n + 1)];
+		cout << "Enter the coordinates of the polyline one by one \n";
+		for(int i = 0; i < 2*(n + 1); i++)
 		{
-			double x0, y0;
-			x0 = x;
-			y0 = y - r2 / 2;
-			file << "gsave \n";
-			file << x0 << ' ' << y0 << ' ' << "translate \n";
-			file << "0 0 moveto \n";
-			file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
-			file << "180 rotate \n";
-			file << r1/2 << ' ' << '0' << ' ' << r1/2 << ' ' << r2 << ' ' << '0' << ' ' << r2 << ' ' << "rcurveto \n";
-			file << "closepath \n";
-			file << "fill \n";
-			file << "grestore \n";
+			cin >> arr[i];
 		}
 
-    	void polyline(int n)
-	{
-		//a function used to draw any number of lines by taking the starting and ending point of each line as an input from the user
-		double arr[2*(n + 1)];
-				cout << "Enter the coordinates of the polyline one by one \n";
-				for(int i = 0; i < 2*(n + 1); i++)
-				{
-					cin >> arr[i];
-				}
-
-				file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
-				for(int i = 2; i < 2*(n + 1); i = i + 2)
-				{
-					file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
-				}
-				file << "stroke";
+		file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
+		for(int i = 2; i < 2*(n + 1); i = i + 2)
+		{
+			file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
+		}
+		file << "stroke";
 	}
-	
+
 	void star(double x, double y, double s)
 	{
-		// a funtion to draw the outline of a five sided star
 		file << "gsave \n"
-		     << "/side { \n"
-		     << s << ' ' << "0 lineto \n"
-		     << "currentpoint translate \n"
-		     << "-144 rotate \n"
-		     << "} def \n"
-		     << "/star { \n"
-		     << "currentpoint translate \n"
-		     << "4 {side} repeat \n"
-		     << "closepath \n"
-		     << "} def \n"
-		     << x << ' ' << y << ' ' << "moveto \n"
-		     << "star \n"
-		     << "stroke \n"
-		     << "grestore \n";
+		file << "/side { \n"
+		file<< s << ' ' << "0 lineto \n"
+		file<< "currentpoint translate \n"
+		file<< "-144 rotate \n"
+		file<< "} def \n"
+		file<< "/star { \n"
+		file<< "currentpoint translate \n"
+		file<< "4 {side} repeat \n"
+		file<< "closepath \n"
+		file<< "} def \n"
+		file<< x << ' ' << y << ' ' << "moveto \n"
+		file<< "star \n"
+	    file<< "stroke \n"
+		file<< "grestore \n";
 	}
-	
+
 	void fillstar(double x, double y, double s)
-	// a function to draw a five sided star and fill it with a desired color
-		{
-		    file << "gsave \n";
-			file << "/side { \n"
-			     << s << ' ' << "0 lineto \n"
-			     << "currentpoint translate \n"
-			     << "-144 rotate \n"
-			     << "} def \n"
-			     << "/star { \n"
-			     << "currentpoint translate \n"
-			     << "4 {side} repeat \n"
-			     << "closepath \n"
-			     << "} def \n"
-			     << x << ' ' << y << ' ' << "moveto \n"
-			     << "star \n"
-			     << "fill \n"
-				 << "grestore \n";
-		}
-		
-		void polygon(double x, double y, int n, double l)
-		// a function to draw the outline of an n - sided polygon by taking number of sides and length of a side as an input from user
 	{
-		
+		file << "gsave \n";
+		file << "/side { \n"
+		file<< s << ' ' << "0 lineto \n"
+		file<< "currentpoint translate \n"
+		file<< "-144 rotate \n"
+		file<< "} def \n"
+		file<< "/star { \n"
+		file<< "currentpoint translate \n"
+		file<< "4 {side} repeat \n"
+		file<< "closepath \n"
+		file<< "} def \n"
+		file<< x << ' ' << y << ' ' << "moveto \n"
+		file<< "star \n"
+		file<< "fill \n"
+		file<< "grestore \n";
+	}
+
+	void polygon(double x, double y, int n, double l)
+	{
 		double ang = 360 / n;
 		file << "gsave \n";
 		file << x << ' ' << y << ' ' << "translate \n"
-			 << "0 0 moveto \n"
-			 << n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
-			 << "closepath \n"
-			 << "stroke \n"
-			 << "grestore \n";
+		file<< "0 0 moveto \n"
+		file<< n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
+		file<< "closepath \n"
+		file<< "stroke \n"
+		file<< "grestore \n";
 	}
 
 	void fillpolygon(double x, double y, int n, double l)
-	// functio to drwa an n - sided polygon and fill it with a desired color
-		{
-			double ang = 360 / n;
-			file << "gsave \n";
-			file << x << ' ' << y << ' ' << "translate \n"
-				 << "0 0 moveto \n"
-				 << n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
-				 << "closepath \n"
-				 << "fill \n"
-				 << "grestore \n";
-		}
-		
-		void selectcolor()
+	{
+		double ang = 360 / n;
+		file<< "gsave \n";
+		file << x << ' ' << y << ' ' << "translate \n"
+		file<< "0 0 moveto \n"
+		file<< n << " {" << l << " 0 lineto currentpoint translate " << ang << " rotate} repeat \n"
+		file<< "closepath \n"
+		file<< "fill \n"
+		file<< "grestore \n";
+	}
+	
+	void selectcolor()
 		// a function that allows the user to select a color out of 9 choices
 	{
 		        cout << "1. Red \n"
@@ -260,6 +243,249 @@ class Postscript
 				default :
 					cout << "Invalid Choice! \n";
 				}
+	}void selectcolor()
+	{
+		file<< "1. Red \n"
+		file<< "2. Green \n"
+		file<< "3. Blue \n"
+		file<< "4. Magenta \n"
+		file<< "5. Yellow \n"
+		<< "6. Cyan \n"
+		<< "7. Gray \n"
+		<< "8. Black \n"
+		<< "9. White \n"
+		<< "Select your color \n";
+				
+		int clr;
+		cin >> clr;
+		switch(clr)
+		{
+			case 1 :
+					setcolor(1, 0, 0);
+					break;
+			case 2 :
+					setcolor(0, 1, 0);
+					break;
+			case 3 :
+					setcolor(0, 0, 1);
+					break;
+			case 4 :
+					setcolor(1, 0, 1);
+					break;
+			case 5 :
+					setcolor(1, 1, 0);
+					break;
+			case 6 :
+					setcolor(0, 1, 1);
+					break;
+			case 7 :
+					setcolor(0, 0, 0);
+					setgray(0.5);
+					break;
+			case 8 :
+					setcolor(0, 0, 0);
+					break;
+			case 9 :
+					setcolor(1, 1, 1);
+					break;
+			default :
+			cout << "Invalid Choice! \n";
+		}
+	}			
+
+	void linegraph1(int n, string title, string hl, string v1)
+	{	
+		file << "30 30 moveto \n";
+		file<< "550 30 lineto \n";
+		file<< "30 30 moveto \n";
+		file<< "30 550 lineto \n";
+		file<< "stroke \n";
+		file<< "/Helvetica findfont \n";
+		file<< "40 scalefont setfont \n";
+		file<< "200 550 moveto \n";
+		file<< "(" << title << ") show \n";
+		file<< "/Helvetica findfont \n";
+		file<< "15 scalefont setfont \n";
+		file<< "250 5 moveto \n";
+		file<< "(" << hl << ") show \n";
+		file<< "gsave \n";
+		file<< "14 250 moveto \n";
+		file<< "90 rotate \n";
+		file<< "(" << vl << ") show \n";
+		file<< "grestore \n";
+		file<< "/Helvetica findfont \n";
+		file<< "8 scalefont \n"
+		file<< "setfont \n";
+
+
+		double arr[2*(n + 1)];
+		cout << "Enter the coordinates of the polyline one by one \n";
+		for(int i = 0; i < 2*(n + 1); i++)
+		{
+			cin >> arr[i];
+		}
+
+		file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
+		for(int i = 2; i < 2*(n + 1); i = i + 2)
+		{
+			file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
+		}
+		file << "stroke";
+		}
+
+	void linegraph2(int n, string title, string hl, string v1)
+	{
+		file << "30 30 moveto \n";
+		file<< "550 30 lineto \n";
+		file<< "30 30 moveto \n";
+		file<< "30 550 lineto \n";
+		file<< "stroke \n";
+		file<< "/Helvetica findfont \n";
+		file<< "40 scalefont setfont \n";
+		file<< "200 550 moveto \n";
+		file<< "(" << title << ") show \n";
+		file<< "/Helvetica findfont \n";
+		file<< "15 scalefont setfont \n";
+		file<< "250 5 moveto \n";
+		file<< "(" << hl << ") show \n";
+		file<< "gsave \n";
+		file<< "14 250 moveto \n";
+		file<< "90 rotate \n";
+		file<< "(" << vl << ") show \n";
+		file<< "grestore \n";
+		file<< "/Helvetica findfont \n";
+		file<< "8 scalefont";
+		file<< "setfont \n";
+
+		double arr[2*(n + 1)];
+		cout << "Enter the coordinates of the polyline one by one \n";
+		for(int i = 0; i < 2*(n + 1); i++)
+		{
+			cin >> arr[i];
+		}
+
+		file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
+
+		for(int i = 2; i < 2*(n + 1); i = i + 2)
+		{
+			file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
+		}
+		file << "stroke";
+		
+		double a[2*(n + 1)];
+		cout << "Enter the coordinates of the polyline one by one \n";
+		for(int j = 0; j < 2*(n + 1); j++)
+		{
+		cin >> a[j];
+		}
+
+		file << a[0] << ' ' << a[1] << ' ' << "moveto \n";
+		for(int j = 2; j < 2*(n + 1); j = j + 2)
+		{
+			file << a[j] << ' ' << a[j+1] << ' ' << "lineto \n";
+		}
+			file << "stroke";
+	}
+    	
+    	void bargraph1(string title, string hl, string vl, int hn, double intervalv, string label[], double b1[])
+	{
+		file<< "30 30 moveto \n"
+		file<< "550 30 lineto \n"
+		file<< "30 30 moveto \n"
+		file<< "30 550 lineto \n"
+		file<< "stroke \n"
+		file<< "/Helvetica findfont \n"
+		file<< "40 scalefont setfont \n"
+		file<< "200 550 moveto \n"
+		file<< "(" << title << ") show \n"
+		file<< "/Helvetica findfont \n"
+		file<< "15 scalefont setfont \n"
+		file<< "250 5 moveto \n"
+		file<< "(" << hl << ") show \n"
+		file<< "gsave \n"
+		file<< "14 250 moveto \n"
+		file<< "90 rotate \n"
+		file<< "(" << vl << ") show \n"
+		file<< "grestore \n"
+		file<< "/Helvetica findfont \n"
+		file<< "8 scalefont setfont \n";
+					
+		for(int i = 0; i < hn; i++)
+		{
+			file << 30+((i+1)*intervalh) << " 22 moveto \n"
+			file<< "(" << label[i] << ")" << " show \n";
+		}
+		for(int i = 0; i < hn; i++)
+		{
+		file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
+		}
+		for(int i = 0; i < hn; i++)
+		{
+		file << "gsave \n"
+		file<< "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
+		file<< "90 rotate \n"
+		file<< "(" << b1[i]<< ") show \n"
+		file<< "grestore \n";
+		}
+
+	}
+
+	void bargraph2(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[], double b2[])
+	{
+		file << "30 30 moveto \n"
+		file<< "550 30 lineto \n"
+		file<< "30 30 moveto \n"
+		file<< "30 550 lineto \n"
+		file<< "stroke \n"
+		file<< "/Helvetica findfont \n"
+		file<< "40 scalefont setfont \n"
+		file<< "200 550 moveto \n"
+		file<< "(" << title << ") show \n"
+		file<< "/Helvetica findfont \n"
+		file<< "15 scalefont setfont \n"
+		file<< "250 5 moveto \n"
+		file<< "(" << hl << ") show \n"
+		file<< "gsave \n"
+		file<< "14 250 moveto \n"
+		file<< "90 rotate \n"
+		file<< "(" << vl << ") show \n"
+		file<< "grestore \n"
+		file<< "/Helvetica findfont \n"
+		file<< "8 scalefont setfont \n";
+		file<<for(int i = 0; i < hn; i++)
+		{
+			file << 30+((i+1)*intervalh) << " 22 moveto \n"
+			file<< "(" << label[i] << ")" << " show \n";
+		}
+		file<< "1 0 0 setrgbcolor \n";
+		for(int i = 0; i < hn; i++)
+		{
+			file<< 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
+		}
+		file<< "0 0 1 setrgbcolor \n";
+		for(int i = 0; i < hn; i++)
+		{
+			file<< 30+((i+1)*intervalh) + 5 << " 30 5 " << b2[i] * intervalv << " rectfill \n";
+		}
+		file<< "1 0 0 setrgbcolor \n";
+		for(int i = 0; i < hn; i++)
+		{
+			file<< "gsave \n"
+			file<< "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
+			file<< "90 rotate \n"
+			file<< "(" << b1[i] << ") show \n"
+			file<< "grestore \n";
+		}
+		file << "0 0 1 setrgbcolor \n";
+		for(int i = 0; i < hn; i++)
+		{
+			file<< "gsave \n"
+			file<< "28 " << (b2[i] * intervalv) + 25<< " moveto \n"
+			file<< "90 rotate \n"
+			file<< "(" << b2[i] << ") show \n"
+			file<< "grestore \n";
+		}
+
 	}
     	
     	void graphictext()
@@ -468,194 +694,7 @@ class Postscript
 		}
 	}
 
-    	void lgraph()
-    	{
-    		//lgraph function is use to create line graphs to represent census.
-    		char x;
-		cout<<"Enter which linegraph you want : A or B \n";
-		cin>>x;
-    		
-    		case 'A':
-    		file<<30<<' '<<30<<' '<<"moveto";
-		file<<550<<' '<<30<<' '<<"lineto";
-		file<<30<<' '<<30<<' '<<"moveto";
-		file<<30<<' '<<550<<' '<<"lineto";
-		file<<"stroke";
-		file<<"/Helvetica findfont";
-		file<<40<<' '<<"scalefont";
-		file<<"setfont";
-		file<<200<<' '<<550<<' '<<"moveto";
-		file<<"(title) true charpath";
-		file<<"/Helvetica findfont";
-		file<<15<<' '<<"scalefont";
-		file<<"setfont";
-		file<<250<<' '<<5<<"moveto";
-		file<<"(h1) true charpath";
-		file<<"gsave";
-		file<<14<<' '<<250<<' '<<"moveto";
-		file<<90 rotate 
-		file<<(v1) true charpath
-		file<<grestore
-		file<<"/Helvetica findfont";
-		file<<8<<' '<<"scalefont"; 
-		file<<"setfont";
-		
-    		double arr[2*(n + 1)];
-		file<< "Enter the coordinates of the polyline one by one \n";
-		for(int i = 0; i < 2*(n + 1); i++)
-		{
-			cin >> arr[i];
-		}
-
-		file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
-		for(int i = 2; i < 2*(n + 1); i = i + 2)
-		{
-			file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
-		}
-		file << "stroke";
-    		break;
-    			
-    		case "B" :
-    		file<<30<<' '<<30<<' '<<"moveto";
-		file<<550<<' '<<30<<' '<<"lineto";
-		file<<30<<' '<<30<<' '<<"moveto";
-		file<<30<<' '<<550<<' '<<"lineto";
-		file<<"stroke";
-		file<<"/Helvetica findfont";
-		file<<40<<' '<<"scalefont";
-		file<<"setfont";
-		file<<200<<' '<<550<<' '<<"moveto";
-		file<<"(title) true charpath";
-		file<<"/Helvetica findfont";
-		file<<15<<' '<<"scalefont";
-		file<<"setfont";
-		file<<250<<' '<<5<<"moveto";
-		file<<"(h1) true charpath";
-		file<<"gsave";
-		file<<14<<' '<<250<<' '<<"moveto";
-		file<<90 rotate 
-		file<<(v1) true charpath
-		file<<grestore
-		file<<"/Helvetica findfont";
-		file<<8<<' '<<"scalefont"; 
-		file<<"setfont";
-		
-    		double arr[2*(n + 1)];
-		cout << "Enter the coordinates of the polyline one by one \n";
-		for(int i = 0; i < 2*(n + 1); i++)
-		{
-			cin >> arr[i];
-		}
-
-		file << arr[0] << ' ' << arr[1] << ' ' << "moveto \n";
-		for(int i = 2; i < 2*(n + 1); i = i + 2)
-		{
-			file << arr[i] << ' ' << arr[i+1] << ' ' << "lineto \n";
-		}
-		file << "stroke";
-    		break;
-    		}
-    		
-    		void bargraph1(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[])
-				{
-					file << "30 30 moveto \n"
-						 << "550 30 lineto \n"
-						 << "30 30 moveto \n"
-						 << "30 550 lineto \n"
-						 << "stroke \n"
-						 << "/Helvetica findfont \n"
-						 << "40 scalefont setfont \n"
-						 << "200 550 moveto \n"
-						 << "(" << title << ") show \n"
-						 << "/Helvetica findfont \n"
-						 << "15 scalefont setfont \n"
-						 << "250 5 moveto \n"
-						 << "(" << hl << ") show \n"
-						 << "gsave \n"
-						 << "14 250 moveto \n"
-						 << "90 rotate \n"
-						 << "(" << vl << ") show \n"
-						 << "grestore \n"
-					     << "/Helvetica findfont \n"
-						 << "8 scalefont setfont \n";
-					for(int i = 0; i < hn; i++)
-					{
-						file << 30+((i+1)*intervalh) << " 22 moveto \n"
-							 << "(" << label[i] << ")" << " show \n";
-					}
-					for(int i = 0; i < hn; i++)
-					{
-						file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
-					}
-				    for(int i = 0; i < hn; i++)
-				    {
-				    	file << "gsave \n"
-						     << "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
-							 << "90 rotate \n"
-				    		 << "(" << b1[i] << ") show \n"
-							 << "grestore \n";
-				    }
-
-				}
-				
-		void bargraph2(string title, string hl, string vl, int hn, double intervalh, double intervalv, string label[], double b1[], double b2[])
-		{
-			file << "30 30 moveto \n"
-			 << "550 30 lineto \n"
-			 << "30 30 moveto \n"
-			<< "30 550 lineto \n"
-			 << "stroke \n"
-			 << "/Helvetica findfont \n"
-			<< "40 scalefont setfont \n"
-			<< "200 550 moveto \n"
-			 << "(" << title << ") show \n"
-			 << "/Helvetica findfont \n"
-			 << "15 scalefont setfont \n"
-			 << "250 5 moveto \n"
-			 << "(" << hl << ") show \n"
-			 << "gsave \n"
-			 << "14 250 moveto \n"
-			 << "90 rotate \n"
-			 << "(" << vl << ") show \n"
-			 << "grestore \n"
-		         << "/Helvetica findfont \n"
-		         << "8 scalefont setfont \n";
-				for(int i = 0; i < hn; i++)
-				{
-				file << 30+((i+1)*intervalh) << " 22 moveto \n"
-		   		 << "(" << label[i] << ")" << " show \n";
-				}
-				file << "1 0 0 setrgbcolor \n";
-				for(int i = 0; i < hn; i++)
-				{
-				file << 30+((i+1)*intervalh) << " 30 5 " << b1[i] * intervalv << " rectfill \n";
-				}
-				file << "0 0 1 setrgbcolor \n";
-				for(int i = 0; i < hn; i++)
-				{
-				file << 30+((i+1)*intervalh) + 5 << " 30 5 " << b2[i] * intervalv << " rectfill \n";
-				}
-				file << "1 0 0 setrgbcolor \n";
-				for(int i = 0; i < hn; i++)
-				 {
-				file << "gsave \n"
-				<< "28 " << (b1[i] * intervalv) + 25<< " moveto \n"
-				<< "90 rotate \n"
-				<< "(" << b1[i] << ") show \n"
-				 << "grestore \n";
-			   	  }
-				file << "0 0 1 setrgbcolor \n";
-				for(int i = 0; i < hn; i++)
-				{
-				file << "gsave \n"
-				<< "28 " << (b2[i] * intervalv) + 25<< " moveto \n"
-				 << "90 rotate \n"
-				 << "(" << b2[i] << ") show \n"
-				 << "grestore \n";
-			   	  }
-				}
-				
-				void closefile()
+    	void closefile()
 	{
 		file.close();
 	}
