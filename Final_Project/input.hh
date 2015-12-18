@@ -17,13 +17,15 @@ void input()
 {
 	int input = 1;
 	basicshapes p("image.ps");
+	
+	//while loop runs continuously until user enters zero
 	while(input > 0)
 	{
-	        cout << "1.  Line \n"
-	        	 << "2.  Polyline \n"
+	                    cout << "1.  Line \n"
+	                 	 << "2.  Polyline \n"
 				 << "3.  Rectangle \n"
 				 << "4.  Fill Rectangle \n"
-			     << "5.  Circle \n"
+			         << "5.  Circle \n"
 				 << "6.  Fill Circle \n"
 				 << "7.  Triangle \n"
 				 << "8.  Fill Triangle \n"
@@ -45,7 +47,8 @@ void input()
 	        {
 	           case 1 :
 	           {
-	        	double x1, y1, x2, y2;
+	           	//line
+	        	double x1, y1, x2, y2;//double variables to store coordinates of starting and ending point of line
 	        	cout << "Enter the coordinates of the starting point \n";
 	        	cin >> x1;
 	        	cin >> y1;
@@ -58,16 +61,18 @@ void input()
 
 	           case 2 :
 	           {
+	           	//polyline
 	        	   cout << "Enter number of lines \n";
-	        	   		int n;
+	        	   		int n;//int variable to store number of lines
 	        	   		cin >> n;
 	        	   		p.polyline(n);
 	        	   		break;
 	           }
 
 	           case 3 :
+	           //rectangle
 	           {
-	        	   double x, y, w, h;
+	        	   double x, y, w, h;//double variables to store starting coordinates, width and height
 	        	   		cout << " Enter starting coordinates \n";
 	        	   		cin >> x;
 	        	   		cin >> y;
@@ -79,8 +84,9 @@ void input()
 	           }
 
 	           case 4 :
+	           //fillrect
 	           {
-	        	   double x, y, w, h;
+	        	                                        double x, y, w, h;
 	        	   					cout << " Enter starting coordinates \n";
 	        	   					cin >> x;
 	        	   					cin >> y;
@@ -93,8 +99,9 @@ void input()
 	           }
 
 	           case 5 :
+	           //circle
 	           {
-	        	   double xc, yc, r;
+	        	   double xc, yc, r;///double variables to store coordinates of center and radius
 	        	   		cout << "Enter the coordinates of the center \n";
 	        	   		cin >> xc;
 	        	   		cin >> yc;
@@ -105,9 +112,10 @@ void input()
 	           }
 
 	           case 6 :
+	           //fill circle
 	           {
-	        	   double xc, yc, r;
-	        	   cout << "Enter the coordinates of the center \n";
+	        	                                        double xc, yc, r;
+	        	                                        cout << "Enter the coordinates of the center \n";
 	        	   					cin >> xc;
 	        	   					cin >> yc;
 	        	   					cout << "Enter the radius of the circle \n";
@@ -118,9 +126,10 @@ void input()
 	           }
 
 	           case 7 :
+	           //triangle
 	           {
 	        	   cout << "Enter the coordinates of the three vertices \n";
-	        	   			double x1, y1, x2, y2, x3, y3;
+	        	   			double x1, y1, x2, y2, x3, y3;///double variables to store coordinates of 3 vertices
 	        	   			cin >> x1
 	        	   			    >> y1
 	        	   				>> x2
@@ -132,6 +141,7 @@ void input()
 	           }
 
 	           case 8 :
+	           //fill triangle
 	           {
 	        	   cout << "Enter the coordinates of the three vertices \n";
 	        	   double x1, y1, x2, y2, x3, y3;
@@ -147,13 +157,14 @@ void input()
 	           }
 
 	           case 9 :
+	           //ellipse
 	           {
-	        	   double xc, yc;
+	        	   double xc, yc;//double variables to store coordinates of center
 	        	   cout << "Enter the coordinates of the center of the ellipse \n";
 	        	   			cin >> xc;
 	        	   			cin >> yc;
 	        	   			cout << "Enter horizontal and vertical radii \n";
-	        	   			double r1, r2;
+	        	   			double r1, r2;//double variables to store horizontal and vertical radii
 	        	   			cin >> r1;
 	        	   			cin >> r2;
 	        	   			p.ellipse(xc, yc, r1, r2);
@@ -161,6 +172,7 @@ void input()
 	           }
 
 	           case 10 :
+	           //fillellipse
 	           {
 	        	   double xc, yc, r1, r2;
 	        	   cout << "Enter the coordinates of the center of the ellipse \n";
@@ -175,8 +187,9 @@ void input()
 	           }
 
 	           case 11:
+	           //star
 	           {
-	        	   double x, y, s;
+	        	   double x, y, s;//double variables to store coordinates of center and length of a side
 	        	   			cout << "Enter the coordinates of the starting point \n";
 	        	   			cin >> x;
 	        	   			cin >> y;
@@ -187,6 +200,7 @@ void input()
 	           }
 
 	           case 12 :
+	           //fill star
 	           {
 	        	   double x, y, s;
 	        	   cout << "Enter the coordinates of the starting point \n";
@@ -200,6 +214,7 @@ void input()
 	           }
 
 	           case 13 :
+	           //polygon
 	           {
 	        	   int n;
 	        	   double x, y, l;
@@ -216,6 +231,7 @@ void input()
 	           }
 
 	           case 14 :
+	           ///fill polygon
 	           {
 	        	   int n;
 	        	   	        	   double x, y, l;
@@ -232,6 +248,7 @@ void input()
 	           }
 
 	           case 15 :
+	           //grid
 	           {
 	        	   double x, y, h, w;
 	        	   int rows, cols;
@@ -256,6 +273,7 @@ void input()
 	           }
 
 	           case 16 :
+	           //shaded grid
 	           {
 	        	   double x, y, h, w;
 	        	   	        	   int rows, cols;
@@ -284,18 +302,21 @@ void input()
 	           }
 
 	           case 17 :
+	           //bar graph
 	           {
 	        	   bar_input();
 	        	   break;
 	           }
 
 	           case 18 :
+	           //line graph
 	           {
 	        	   line_input();
 	        	   break;
 	           }
 
 	           case 19 :
+	           //graphic text
 	           {
 	        	   graphictextinput();
 	        	   break;
