@@ -39,7 +39,7 @@ private:
 
 						logo<<"1"<<' '<<"0"<<' '<<"translate \n";
 						logo<<"newpath \n";
-						logo<<"30"<<' '<<"0"<<' '<<"moveto \n";
+						logo<<"35"<<' '<<"0"<<' '<<"moveto \n";
 						logo<<"(o) true charpath \n";
 						logo<<"1"<<' '<<"1"<<' '<<"0"<<' '<<"setrgbcolor \n";
 						logo<<"fill \n";
@@ -53,14 +53,14 @@ private:
 
 						logo<<"1"<<' '<<"0"<<' '<<"translate \n";
 						logo<<"newpath \n";
-						logo<<"80"<<' '<<"0"<<' '<<"moveto \n";
+						logo<<"70"<<' '<<"0"<<' '<<"moveto \n";
 						logo<<"(l) true charpath \n";
 						logo<<"0"<<' '<<"1"<<' '<<"0"<<' '<<"setrgbcolor \n";
 						logo<<"fill \n";
 
 						logo<<"1"<<' '<<"0"<<' '<<"translate \n";
 						logo<<"newpath \n";
-						logo<<"90"<<' '<<"0"<<' '<<"moveto \n";
+						logo<<"80"<<' '<<"0"<<' '<<"moveto \n";
 						logo<<"(e) true charpath \n";
 						logo<<"1"<<' '<<"0"<<' '<<"0"<<' '<<"setrgbcolor \n";
 						logo<<"fill \n";
