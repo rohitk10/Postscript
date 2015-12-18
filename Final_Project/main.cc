@@ -2,6 +2,7 @@
 
 int main()
 {
-	input();
+	Postscript d;
+	d.input();
 
 }
