@@ -10,11 +10,13 @@
 using namespace std;
 
 
+class Postscript {
 
+public:
 void input()
 {
 	int input = 1;
-	Postscript p("image.ps");
+	basicshapes p("image.ps");
 	while(input > 0)
 	{
 	        cout << "1.  Line \n"
@@ -302,6 +304,6 @@ void input()
 	        }
 	}
 }
-
+};
 
 #endif
