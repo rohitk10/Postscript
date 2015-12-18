@@ -163,7 +163,7 @@ private:
 
 						logo<<"400"<<' '<<"500"<<' '<<"moveto \n";
 						logo<<"100"<<' '<<"30"<<' '<<"rlineto \n";
-						logo<<"50"<<' '<<"-180"<<' '<<"rlineto \n";
+						logo<<"50"<<' '<<"-380"<<' '<<"rlineto \n";
 						logo<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
 						logo<<"closepath \n";
 
