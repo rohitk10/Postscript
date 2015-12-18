@@ -146,6 +146,7 @@ class basicshapes
 
     		void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
     			{
+    				//function to draw a triangle using coordinates of 3 vertices taken as user input
     				file<<x1<<' '<<y1<<" moveto \n";
     				file<<x2<<' '<<y2<<" lineto \n";
     				file<<x3<<' '<<y3<<" lineto \n";
@@ -155,6 +156,7 @@ class basicshapes
 
     			void filltriangle(double x1, double y1, double x2, double y2, double x3, double y3)
     				{
+    					//function to draw a triangle and fill it with a desired color
     					file<<x1<<' '<<y1<<" moveto \n";
     					file<<x2<<' '<<y2<<" lineto \n";
     					file<<x3<<' '<<y3<<" lineto \n";
@@ -164,6 +166,7 @@ class basicshapes
 
     			void ellipse(double x, double y, double r1, double r2)
     				{
+    					//function to draw an ellipse usinf coordinates of center, horizontal and vertical radii as user input
     					double x0, y0;
     					x0 = x;
     					y0 = y - r2 / 2;
@@ -180,6 +183,7 @@ class basicshapes
 
     				void fillellipse(double x, double y, double r1, double r2)
     					{
+    						//function to draw an ellipse and fill it with a desired color
     						double x0, y0;
     						x0 = x;
     						y0 = y - r2 / 2;
@@ -196,6 +200,7 @@ class basicshapes
 
     				void star(double x, double y, double s)
     					{
+    						//function to draw a 5 sided star using starting coordinates and side length as user input
     						file << "gsave \n"
     						     << "/side { \n"
     						     << s << ' ' << "0 lineto \n"
@@ -215,6 +220,7 @@ class basicshapes
 
     					void fillstar(double x, double y, double s)
     						{
+    							//function to draw a star and fill it with a desired color
     						    file << "gsave \n";
     							file << "/side { \n"
     							     << s << ' ' << "0 lineto \n"
@@ -234,6 +240,7 @@ class basicshapes
 
     					void polygon(double x, double y, int n, double l)
     						{
+    							// function to draw an n sided polygon taking number of sides as user input
     							double ang = 360 / n;
     							file << "gsave \n";
     							file << x << ' ' << y << ' ' << "translate \n"
@@ -246,6 +253,7 @@ class basicshapes
 
     						void fillpolygon(double x, double y, int n, double l)
     							{
+    								//function to draw a polygon and fill it with a desired color
     								double ang = 360 / n;
     								file << "gsave \n";
     								file << x << ' ' << y << ' ' << "translate \n"
