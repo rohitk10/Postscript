@@ -1,3 +1,4 @@
+// Author : Rutuja Sawant
 #ifndef _GRAPHICTEXT_HH
 #define _GRAPHICTEXT_HH
 
