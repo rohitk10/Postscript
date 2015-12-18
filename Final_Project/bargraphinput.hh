@@ -8,9 +8,9 @@ using namespace std;
 
 void bar_input()
 {
-	BarGraph b("bargraph.ps");
-	string title, h_label, v_label;
-				int num_of_values,num_of_variables;
+                        	BarGraph b("bargraph.ps");
+	                        string title, h_label, v_label;// string variables to store horizontal and vertical axes labels
+				int num_of_values,num_of_variables;// integer variables to store number of bars and number of vairbles on x axis
 				cout << "Enter Graph Title \n";
 				cin >> title;
 				cout << "Enter Horizontal axis label and Vertical axis label \n";
@@ -26,7 +26,7 @@ void bar_input()
 					cin >> num_of_values;
 					double b1[num_of_values];
 					string label[num_of_values];
-					double intervalh;
+					double intervalh;// double variable to store horizontal gap between 2 bars on x axis
 					intervalh = 500 / num_of_values;
 					for(int i = 0; i < num_of_values; i ++)
 					{
@@ -44,7 +44,7 @@ void bar_input()
 							max = b1[i+1];
 						}
 					}
-					double intervalv;
+					double intervalv;// double variable to store vertical gap between to values on y axis
 					intervalv = 500/max;
 					b.bargraph1(title, h_label, v_label, num_of_values, intervalh, intervalv, label, b1);
 					break;
@@ -56,7 +56,7 @@ void bar_input()
 					cin >> num_of_values;
 					double b1[num_of_values];
 					string label[num_of_values];
-					double intervalh;
+					double intervalh;// double variable to store horizontal gap between 2 bars on x axis
 					intervalh = 500 / num_of_values;
 					double b2[num_of_values];
 					for(int i = 0; i < num_of_values; i ++)
@@ -84,7 +84,7 @@ void bar_input()
 							max = b2[i+1];
 						}
 					}
-					double intervalv;
+					double intervalv;// double variable to store vertical gap between to values on y axis
 					intervalv = 500 / max;
 					b.bargraph2(title, h_label, v_label, num_of_values, intervalh, intervalv, label, b1, b2);
 					break;
