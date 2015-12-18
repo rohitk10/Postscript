@@ -68,17 +68,19 @@ private:
 
 	void dell()
 	{
-		logo<<"300"<<' '<<"300"<<' '<<"220"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+		logo<<"300"<<' '<<"300"<<' '<<"200"<<' '<<"0"<<' '<<"360"<<' '<<"arc \n";
+						logo<<"20 setlinewidth \n";
+						logo<<"0"<<' '<<"1"<<' '<<"1"<<' '<<"setrgbcolor \n";
 						logo<<"stroke \n";
 						logo<<"/Times-Roman findfont \n";
 						logo<<"40"<<' '<<"scalefont \n";
 						logo<<"setfont \n";
-						logo<<"240"<<' '<<"300"<<' '<<"translate \n";
+						logo<<"200"<<' '<<"320"<<' '<<"translate \n";
 						logo<<"2"<<' '<<"1"<<' '<<"scale \n";
 						logo<<"newpath \n";
 						logo<<"0"<<' '<<"0"<<' '<<"moveto \n";
-						logo<<"(D) true charpath \n";
-						logo<<"2"<<' '<<"setlinewidth \n";
+						logo<<"(DELL) true charpath \n";
+						logo<<"10"<<' '<<"setlinewidth \n";
 						logo<<"0"<<' '<<"1"<<' '<<"1"<<' '<<"setrgbcolor \n";
 						logo<<"fill \n";
 	}
@@ -114,18 +116,24 @@ private:
 						logo<<"-50"<<' '<<"-50"<<' '<<"rlineto \n";
 						logo<<"-50"<<' '<<"50"<<' '<<"rlineto \n";
 						logo<<"closepath \n";
+						logo<<"1 0 0 setrgbcolor \n";
+						logo<<"fill \n";
 
 						logo<<"300"<<' '<<"200"<<' '<<"moveto \n";
 						logo<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
 						logo<<"-50"<<' '<<"-50"<<' '<<"rlineto \n";
 						logo<<"100"<<' '<<"0"<<' '<<"rlineto \n";
 						logo<<"closepath \n";
+						logo<<"1 0 0 setrgbcolor \n";
+						logo<<"fill \n";
 
 						logo<<"300"<<' '<<"200"<<' '<<"moveto \n";
 						logo<<"100"<<' '<<"0"<<' '<<"rlineto \n";
 						logo<<"50"<<' '<<"-50"<<' '<<"rlineto \n";
 						logo<<"-100"<<' '<<"0"<<' '<<"rlineto \n";
 						logo<<"closepath \n";
+						logo<<"1 0 0 setrgbcolor \n";
+						logo<<"fill \n";
 
 						logo<<"/Times-Roman findfont \n";
 						logo<<"20"<<' '<<"scalefont \n";
@@ -135,6 +143,7 @@ private:
 						logo<<"newpath \n";
 						logo<<"0"<<' '<<"0"<<' '<<"moveto \n";
 						logo<<"(MITSUBISHI) true charpath \n";
+						logo<<"0 0 0 setrgbcolor \n";
 						logo<<"fill \n";
 	}
 
