@@ -7,8 +7,8 @@ using namespace std;
 class Graph
 {
 public:
-	string title, h_label, v_label;
-	int num_of_variables, num_of_values;
+	string title, h_label, v_label;//string variables to store graph title, horizontal and vertical axes label
+	int num_of_variables, num_of_values;//integer variables to store number of variables and number of values on x axis
 
 };
 
