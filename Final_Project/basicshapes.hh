@@ -8,20 +8,24 @@
 #include <string>
 using namespace std;
 
-class Postscript
+class basicshapes
 {
  private:
 	ofstream file;
  public:
-	Postscript(const char filename[])
+	basicshapes(const char filename[])
 	{
 		file.open(filename);
     	}
+
+        // this function sets red, green and blue color 
 
 	void setcolor(double r, double g, double b)
 		{
 			file<<r<<' '<<g<<' '<<b<<" setrgbcolor \n";
 		}
+
+        //this function sets color out of 9 choices based on user input
 
 	void selectcolor()
 		{
@@ -87,7 +91,9 @@ class Postscript
 
     	void polyline(int n)
     		{
-    			double arr[2*(n + 1)];
+
+                //this function draws multiple number of lines connected to each other using starting and ending point of every line as user input
+    		        	double arr[2*(n + 1)];
     					cout << "Enter the coordinates of the polyline one by one \n";
     					for(int i = 0; i < 2*(n + 1); i++)
     					{
@@ -104,6 +110,7 @@ class Postscript
 
     	void rect(double x, double y, double w, double h)
     		{
+                //a function to draw the outline of a rectangle using starting point, ending point, width and height as user input
     		    file<<x<<' '<< y <<" moveto \n";
     			file<<x+w<<' '<<y<<" lineto \n";
     			file<<x+w<<' '<<y+h<<" lineto \n";
@@ -114,7 +121,8 @@ class Postscript
 
     	void fillrect(double x, double y, double w, double h)
     		{
-    		        file<<x<<' '<< y <<" moveto \n";
+                ////a function to draw the outline of a rectangle using starting point, ending point, width and height as user input
+    		    file<<x<<' '<< y <<" moveto \n";
     			file<<x+w<<' '<<y<<" lineto \n";
     			file<<x+w<<' '<<y+h<<" lineto \n";
     			file<<x<<' '<<y+h<<" lineto \n";
