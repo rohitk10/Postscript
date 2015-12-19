@@ -1,4 +1,9 @@
-// Author : Rohit Kulkarni
+/* Author : Rohit Kulkarni
+   Description : This is a header file containing a method bar_input().
+                 It is responsible for taking user inputs such as Graph title, axes' labels
+                 and finally, the values to be plotted on the bar graph.
+                 It then calls one of the two functions from class BarGraph depending on the user inputs.
+*/                 
 #ifndef _BARGRAPHINPUT_HH
 #define _BARGRAPHINPUT_HH
 
