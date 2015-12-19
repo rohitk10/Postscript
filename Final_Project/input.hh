@@ -1,4 +1,8 @@
-// Author : Rohit Kulkarni
+/* Author : Rohit Kulkarni
+   Description : This is the first parent class that displays the menu
+                 to the user. It is inherited by three other child classes
+                 namely basicshapes, graph and graphictext.
+*/                 
 #ifndef _INPUT_HH
 #define _INPUT_HH
 
