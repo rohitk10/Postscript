@@ -1,4 +1,9 @@
-// Author : Rohit Kulkarni
+/* Author : Rohit Kulkarni
+   Description : This is a header file of the class basicshapes.
+                 It contains various methods that write the postscript code to print
+                 several basic shapes ranging from a line to a polygon.
+                 Every method writes it's code onto a .ps file that is created and saved in the same folder as the program.
+*/                 
 #ifndef _BASICSHAPES_HH
 #define _BASICSHAPES_HH
 
@@ -22,60 +27,61 @@ class basicshapes
         // this function sets red, green and blue color 
 
 	void setcolor(double r, double g, double b)
-		{
-			file<<r<<' '<<g<<' '<<b<<" setrgbcolor \n";
-		}
+	{
+		file<<r<<' '<<g<<' '<<b<<" setrgbcolor \n";
+	}
 
-        //this function sets color out of 9 choices based on user input
+        //this function sets color using a combination of setrgbcolor out of 9 choices based on user input
 
 	void selectcolor()
-		{
-			        cout << "1. Red \n"
-					     << "2. Green \n"
-						 << "3. Blue \n"
-						 << "4. Magenta \n"
-						 << "5. Yellow \n"
-						 << "6. Cyan \n"
-						 << "7. Gray \n"
-						 << "8. Black \n"
-						 << "9. White \n"
-						 << "Select your color \n";
-					int clr;
-					cin >> clr;
-					switch(clr)
-					{
-					case 1 :
-						setcolor(1, 0, 0);
-						break;
-					case 2 :
-						setcolor(0, 1, 0);
-						break;
-					case 3 :
-						setcolor(0, 0, 1);
-						break;
-					case 4 :
-						setcolor(1, 0, 1);
-						break;
-					case 5 :
-						setcolor(1, 1, 0);
-						break;
-					case 6 :
-						setcolor(0, 1, 1);
-						break;
-					case 7 :
-						setcolor(0, 0, 0);
-						setgray(0.5);
-						break;
-					case 8 :
-						setcolor(0, 0, 0);
-						break;
-					case 9 :
-						setcolor(1, 1, 1);
-						break;
-					default :
-						cout << "Invalid Choice! \n";
-					}
-		}
+	{
+	            cout << "1. Red \n"
+		         << "2. Green \n"
+		         << "3. Blue \n"
+	                 << "4. Magenta \n"
+			 << "5. Yellow \n"
+			 << "6. Cyan \n"
+			 << "7. Gray \n"
+			 << "8. Black \n"
+			 << "9. White \n"
+			 << "Select your color \n";
+					
+			int clr;
+			cin >> clr;
+			switch(clr)
+			{
+			case 1 :
+				setcolor(1, 0, 0);
+				break;
+			case 2 :
+				setcolor(0, 1, 0);
+				break;
+			case 3 :
+				setcolor(0, 0, 1);
+				break;
+			case 4 :
+				setcolor(1, 0, 1);
+				break;
+			case 5 :
+				setcolor(1, 1, 0);
+				break;
+			case 6 :
+				setcolor(0, 1, 1);
+				break;
+			case 7 :
+				setcolor(0, 0, 0);
+				setgray(0.5);
+				break;
+			case 8 :
+				setcolor(0, 0, 0);
+				break;
+			case 9 :
+				setcolor(1, 1, 1);
+				break;
+			default :
+				cout << "Invalid Choice! \n";
+			}
+	}
 
 	void setgray(double n)
 		{
