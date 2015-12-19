@@ -1,4 +1,8 @@
-// Author : Rutuja Sawant
+/* Author : Rutuja Sawant
+   Description : This is a class containing various methods that wrie
+                 a postscript code for printing various company logos.
+                 Each method writes the code onto a .ps file.
+*/                 
 #ifndef _GRAPHICTEXT_HH
 #define _GRAPHICTEXT_HH
 
