@@ -1,4 +1,6 @@
-// Author : Rohit Kulkarni
+/* Author : Rohit Kulkarni
+   Description : This is a parent class Graph that is inherited by two child classes BarGraph and LineGraph
+*/   
 #ifndef _GRAPH_HH
 #define _GRAPH_HH
 
