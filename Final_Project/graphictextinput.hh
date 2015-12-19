@@ -1,4 +1,8 @@
-// Author : Rutuja Sawant
+/* Author : Rutuja Sawant
+   Description : A header file containing a method that takes user input
+                 to print a graphic text of the user's choice and call the
+                 respective method from class GraphicText.
+*/                 
 #ifndef _GRAPHICTEXTINPUT_HH
 #define _GRAPHICTEXTINPUT_HH
 
